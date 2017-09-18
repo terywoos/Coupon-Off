@@ -8,8 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="container">
-		
+	<div id="container" align="center">
+		<div id="searchbar">
+			<div id="searchbar_text">스탬프검색 : </div>
+			<div id="searchbar_bar">
+				<form method="get">
+					<input type="text" id="searchBy" placeholder="검색하고자 하는 매장명, 매장위치를 입력하세요."/>
+					<input type="submit" id="doSearch" value="검색"/>
+				</form>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

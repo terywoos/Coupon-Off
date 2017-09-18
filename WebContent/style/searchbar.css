@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 body {
 	width: 100%;
@@ -13,5 +13,35 @@ body {
 		width: 100%;
 		height: 70px;
 		background-color: #c65c80;
-		font-family: 'Jeju Myeongjo', serif;
+		font-family: 'Jeju Gothic', sans-serif;
+}
+
+#searchbar {
+	
+}
+
+#searchbar_text {
+	display: inline-block;;
+	color: white;
+	font-size: 20px;
+	height: 70px;
+	line-height: 70px;
+}
+#searchbar_bar {
+	display: inline-block;
+	width: 380px;
+	margin-left: 10px;
+	
+}
+#searchBy {
+	width: 300px;
+	font-size: 15px;
+	font-family: 'Jeju Gothic', sans-serif;
+}
+
+#doSearch {
+	font-size: 15px;
+	border-radius: 3px;
+	font-family: 'Jeju Gothic', sans-serif;
+	margin-left: 8px;
 }
