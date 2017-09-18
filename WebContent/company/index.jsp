@@ -6,12 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>::: 쿠폰오프 :::</title>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<link rel="stylesheet" type="text/css" href="../style/company.css"/>
 </head>
 <body>
 	<header>
 		<%@ include file="top.jsp" %>
+		<%@ include file="search.jsp" %>
 	</header>
-	<section></section>
+	<section>
+		<%@ include file="userView.jsp" %>
+	</section>
 	<footer></footer>
 </body>
 </html>
