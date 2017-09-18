@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../style/searchbar.css"></link>
 <title>Insert title here</title>
 </head>
 <body>
-
+	<div id="container">
+		
+	</div>
 </body>
 </html>

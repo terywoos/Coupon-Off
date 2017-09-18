@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+
+body {
+	width: 100%;
+	height: 70px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#container {
+		width: 100%;
+		height: 70px;
+		background-color: #c65c80;
+		font-family: 'Jeju Myeongjo', serif;
+}
