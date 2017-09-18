@@ -1,7 +1,10 @@
 @charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
 body
 {
    margin : 0px;
+   position: relative;
 }
 .top
 {
@@ -12,8 +15,6 @@ body
 .search
 {
    width : 100%;
-   height : 50px;
-   background : #c65c80;
 }
 .banners
 {
@@ -37,4 +38,11 @@ span
 {
    text-align: center;
    font-size: 30px;   
+}
+#blackScreen {
+	z-index: 999;
+	background-color: black;
+	opacity: 0.6;
+	position:absolute;
+	display:hidden;
 }
