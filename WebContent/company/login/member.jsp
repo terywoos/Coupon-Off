@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div align="center">
-		<h3>회원가입 (company)</h3>
+		<h3>회원가입 - (company)</h3>
 		<hr>
 		<form method="POST">
 			<table id="Cmember" class="Cmember">
