@@ -6,7 +6,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Couponoff</title>
 </head>
-<body>
-	
-</body>
+<div class="top">
+      <span>로고 및 로그인</span>
+   </div>
+   <div class="search">
+      <span>검색 창</span>
+   </div>
+   <div class="banners">
+      <span>배너</span>   
+   </div>
+   <section>
+   <div class="coupon">
+      <span>쿠폰</span>
+   </div>
+   </section>
+   <footer> 
+      <span>풋터</span>
+   </footer>
 </html>

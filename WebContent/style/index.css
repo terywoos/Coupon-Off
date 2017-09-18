@@ -1,1 +1,40 @@
 @charset "UTF-8";
+body
+{
+   margin : 0px;
+}
+.top
+{
+   width: 100%;
+   height: 75px;
+   background: white;
+}
+.search
+{
+   width : 100%;
+   height : 50px;
+   background : #c65c80;
+}
+.banners
+{
+   width : 100%;
+   height : 600px;
+   background: beige;
+}
+.coupon
+{
+   width : 100%;
+   height : 250px;
+   background : darkgray;
+}
+footer
+{
+   width : 100%;
+   height : 200px;
+   background: gray;
+}
+span
+{
+   text-align: center;
+   font-size: 30px;   
+}
