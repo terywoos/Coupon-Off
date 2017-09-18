@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="topbar">
-		<div id="left_blank"></div>
+	<div id="topbar" align="center">
 		<div id="top_logo"></div>
 		<div id="top_login">
 			<a href="#">로그인</a>

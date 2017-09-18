@@ -7,17 +7,12 @@ body {
 	padding: 0px;
 }
 
-#left_blank {
-	display: inline-block;
-	float:left;
-	width: 40%;
-	height: 75px;
-
+#topbar {
+	position: relative;
 }
 
 #top_logo {
 	display: inline-block;
-	float: left;
 	width: 220px;
 	height: 75px;
 	background-image: url("../images/logo.png");
@@ -26,15 +21,15 @@ body {
 
 #top_login {
 	height: 75px;
-	line-height: 75px;
 	display: inline-block;
-	float: left;
+	position: absolute;
+	right: 200px;
 }
 
 #top_login >a {
 	margin-left: 40px;
 	display: inline;
-	vertical-align: -30px;
+	vertical-align: -50px;
 }
 
 #top_login > :first-child {
