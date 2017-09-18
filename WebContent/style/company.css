@@ -1,0 +1,158 @@
+body, html{
+	width:100%;
+	padding:0px;
+	margin:0px;
+}
+
+#search{
+	display:block;
+	width:100%;
+	height:70px;
+	background-color: #c65c80;
+}
+
+#top{
+	position:relative;
+	display:block;
+}
+
+#memSearch{
+	display:block;
+	padding:10px;
+	color:#ffffff;
+}
+
+#memSearch input,button{
+	margin:10px;
+	font-size:150%;
+	border-radius: 5px;
+	border-style: none;
+}
+
+#top #topBtns{
+	position:absolute;
+	display:block;
+	right:10px;
+	top:10px;
+}
+
+
+a{
+	color:#000000;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+	cursor:pointer;	
+}
+a:active {
+	text-decoration: underline;
+}
+a:visited {
+	text-decoration: none;
+}
+
+#userView{
+	position:relative;
+	display:block;
+	width:23%;
+	border:5px solid #c0c0c0;
+	border-radius: 20px;
+	margin:10px;
+	height:500px;
+}
+#userView .title{
+	position:relative;
+	display:block;
+	text-align:center;
+	border-radius: 15px;
+	font-size:120%;
+	width:100%;
+	height:35px;
+	background-color: #808080;
+	color:#ffffff;
+	padding-top:15px;
+}
+
+#userView .subTitle{
+	position:relative;
+	display:block;
+	border-top:1px dashed #999999;
+	border-bottom:1px dashed #999999;
+	width:90%;
+	font-weight:bold;
+	padding: 5px;
+	margin:0 auto;
+	background-color: #ffe8d9;
+	text-align:center;
+}
+
+#userView .cp{
+	position:relative;
+	display:block;
+	float:left;
+	border:5px solid #999999;
+	border-radius: 30px;
+	width:50px;
+	height:50px;
+	margin:10px;
+	background-image: url("../images/logo.png");
+	background-size:100%;
+}
+
+#userView .cp > span{
+	position:absolute;
+	display:block;
+	font-size:130%;
+	background-color: #d1374b;
+	color:#ffffff;
+	width:25px;
+	height:25px;
+	right:-5px;
+	bottom:-5px;
+	border-radius: 15px;	
+	text-align:center;
+}
+
+
+#userView .userName{
+	position:relative;
+	display:block;
+	width:100%;
+	height:40px;
+	margin:5px;
+}
+
+.userInfo{
+	position:relative;
+	display:block;
+	height:100px;
+	padding-top:5px;
+}
+.userInfo span{
+	font-weight: bold;
+}
+
+.userInfo .pt{
+	color:#d1374b;
+	margin:0 5px 0 5px;
+}
+
+#userView .userName > span{
+	font-size:200%;
+}
+
+#userView .buyList{
+	position:relative;
+	display:block;
+	list-style: none;	
+	width:90%;
+	margin:0 auto;
+	padding:0px;
+}
+
+#userView .buyList > li{
+	padding:10px 0 10px 0px;
+	border-bottom:1px dashed #999999;
+	text-align:center;
+}
