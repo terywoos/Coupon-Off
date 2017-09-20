@@ -8,9 +8,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
 	$(document).ready(function() {
-		$("#login").click(function(){
-			var width = $(window).width();
-			var height = $(window).height();
+		$("#top_login").click(function(){
+			var width = $('body').prop('scrollWidth');
+			var height = $('body').prop('scrollHeight');
 			
 			$("#blackScreen").css({
 				"width": width,
@@ -18,13 +18,87 @@
 				"display": "block"
 			});
 			
+			$.ajax({
+				 url:"login/login.jsp",
+				 success:function(data){
+					$("#ajaxWindow").empty();
+					$("#ajaxWindow").append(data);
+					$("#ajaxWindow").css({
+						"display":"block",
+						"margin": "auto",
+						"width": "550px",
+						"height": "350px"
+					});
+				 }
+			});
+		});	
+		
+		$("#top_signUp").click(function(){
+			//회원가입클릭 
+			var width = $('body').prop('scrollWidth');
+			var height = $('body').prop('scrollHeight');
+			
+			$("#blackScreen").css({
+				"width": width,
+				"height":height,
+				"display": "block"
+			});
+			
+			$.ajax({
+				 url:"login/join.jsp",
+				 success:function(data){
+					$("#ajaxWindow").empty();
+					$("#ajaxWindow").append(data);
+					$("#ajaxWindow").css({
+						"display":"block",
+						"margin": "auto",
+						"width": "500px",
+						"height": "400px"
+					});
+				 }
+			});
+		});	
+		
+		$(document).on("click","#close",function() {
+			$("#blackScreen").css("display","none");
+			$("#ajaxWindow").css("display","none");
+		});
+		
+		$(document).on("click","#login_signup",function() {
+			var width = $('body').prop('scrollWidth');
+			var height = $('body').prop('scrollHeight');
+			
+			$("#blackScreen").css({
+				"width": width,
+				"height":height,
+				"display": "block"
+			});
+			
+			$.ajax({
+				 url:"login/join.jsp",
+				 success:function(data){
+					$("#ajaxWindow").empty();
+					$("#ajaxWindow").append(data);
+					$("#ajaxWindow").css({
+						"display":"block",
+						"margin": "auto",
+						"width": "500px",
+						"height": "400px"
+					});
+				 }
+			});
 		});
 	});
+	
+	
 </script>
 <title>Couponoff</title>
 </head>
 <body>
-		<div id="blackScreen"></div>
+		<div id="blackScreen">
+			<div id="ajaxWindow"></div>
+		</div>
+		
 		<div class="top">
 	      <%@include file="top.jsp"%>
 	   </div>
