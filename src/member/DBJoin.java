@@ -5,17 +5,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBJoin {
-	public Connection joinDB() {
+	private Connection conn;
+	public void joinDB() {
+		conn=null;
+		String url="jdbc:mysql://localhost/CooDB";
 		
-		String url="jdbc:mysql://localhost/memberDB";
-		Connection conn = null;
 		
 		try {
-			conn = DriverManager.getConnection(url,"root","1234");
-		} catch (SQLException e) {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(url,"root","1q2w3e4r!");
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public Connection getConn() {
 		return conn;
 	}
 }
