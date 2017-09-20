@@ -18,6 +18,10 @@ body {
 	height: 75px;
 	background-image: url("../images/logo.png");
 	background-size: cover;
+	z-index:0;
+}
+#top_logo:hover {
+	cursor: pointer;
 }
 
 #top_login {
@@ -31,8 +35,10 @@ body {
 	margin-left: 40px;
 	display: inline;
 	vertical-align: -50px;
+	text-decoration: none;
 }
 
 #top_login > :first-child {
 	margin-left: 150px;
 }
+
