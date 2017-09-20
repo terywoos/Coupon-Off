@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+#login_container {
+	font-family: 'Jeju Gothic', sans-serif;
+	width: 550px;
+	height: 350px;
+	border-radius: 10px;
+	position:relative;
+	background-color: white;
+	opacity: 0.7;
+}
+
+#upper {
+	border-bottom: 1px solid gray;
+	background: #3961a0;
+	border-radius: 10px 10px 0px 0px;
+	height: 70px;
+	position: relative;
+}
+
+#upper span {
+	line-height: 70px;
+	font-size: 20pt;
+	color: white;	
+}
+
+#close {
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/close.png");
+	background-size: cover;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+#close:hover {
+	cursor: pointer;
+}
+
+#lower {
+	position: absolute;
+	top: 150px;
+	left: 140px;
+}
+
+#Login {
+	margin-bottom: 10px;
+}
+
+#Login span {
+	font-size: 15pt;
+}
+
+#MId {
+	font-size: 12pt;
+	width: 200px;
+}
+#MPw {
+	font-size: 12pt;
+	width: 200px;
+}
+
+#login_sub, #login_res {
+	border-radius: 2px;
+	font-size: 12pt;
+	background: white;
+	border: 1px solid gray;
+}
+
+#login_res {
+	margin-left: 15px;
+}
+
+form {
+	margin-bottom: 10px;
+}

@@ -5,17 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CouponOff - 회원가입(company)</title>
+<script>
+	function check(){
+		var id = document.getElementById("Cidx");
+		location.href = "checkId.jsp?Cidx="+id.value;
+	}
+</script>
 </head>
 <body>
 	<div align="center">
 		<h3>회원가입 - (company)</h3>
 		<hr>
-		<form method="POST">
+		<form action="memberOk.jsp" method="POST">
 			<table id="Cmember" class="Cmember">
 				<tr>
 					<td> 아이디 </td>
 					<td> <input type="text" id="Cidx" name="Cidx"> </td>
-					<td> <button id="CidxCheck" name="CidxCheck">중복확인</button> </td>
+					<td> <input type="button" id="checkId" name="checkId" class="checkId" onclick="check()" value="[중복확인]"> </td>
 				</tr>
 				<tr>
 					<td> 비밀번호 </td>
