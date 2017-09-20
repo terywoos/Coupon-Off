@@ -8,6 +8,6 @@ public class DBConnection {
 	private String pw="1q2w3e4r!";
 	private Connection conn;
 	public void connect() {
-		
+		System.out.println("connect");
 	}
 }
