@@ -236,3 +236,16 @@ a:visited {
 	border-bottom:1px dashed #999999;
 	text-align:center;
 }
+
+#blackScreen {
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.6);
+	display:hidden;
+	position:absolute;
+}
+
+#ajaxWindow {
+	display: hidden;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
