@@ -15,6 +15,7 @@
 	</header>
 	<section>
 		<%@ include file="userView.jsp" %>
+		<%@ include file="../product/list.jsp" %>
 	</section>
 	<footer></footer>
 </body>

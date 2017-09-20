@@ -52,16 +52,25 @@ a:visited {
 	text-decoration: none;
 }
 
+#userView, #productList{
+	border:5px solid #c0c0c0;
+	border-radius: 20px;
+	margin:10px;
+}
 #userView{
 	position:relative;
 	display:block;
 	width:23%;
-	border:5px solid #c0c0c0;
-	border-radius: 20px;
-	margin:10px;
-	height:500px;
+	float:left;
 }
-#userView .title{
+#productList{
+	position:relative;
+	display:block;
+	width:70%;
+	height:550px;
+	float:left;	
+}
+#userView .title,#productList .title{
 	position:relative;
 	display:block;
 	text-align:center;
@@ -113,7 +122,7 @@ a:visited {
 	z-index:0;
 }
 
-#userView .cp > span{
+#userView .cp > span,#productList .size{
 	position:absolute;
 	display:block;
 	font-size:130%;
@@ -150,6 +159,35 @@ a:visited {
 	height:40px;
 	margin:5px;
 }
+
+#productList #pList{
+    column-width:25%;
+    -moz-column-width:25%; /* Firefox */ 
+    -webkit-column-width:25%; /* Safari and Chrome */
+	overflow-y:scroll;
+	overflow-x:hidden;
+	height:490px;
+	
+}
+#productList figure{
+	display:inline-block;
+	padding:15px;
+	margin:10px;
+	border:1px solid #b3b3b3;
+}
+
+#productList figure > .img{
+	position:relative;
+	display:block;
+	background-image: url("../images/coffee.png");
+	width:130px;
+	height:100px;
+	border:1px solid #cdcdcd;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 
 .userInfo{
 	position:relative;
