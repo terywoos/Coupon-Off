@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 #login_container {
 	font-family: 'Jeju Gothic', sans-serif;
@@ -20,7 +19,7 @@
 	position: relative;
 }
 
-#upper >span {
+#upper span {
 	line-height: 70px;
 	font-size: 20pt;
 	color: white;	
@@ -45,11 +44,11 @@
 	left: 140px;
 }
 
-table {
+#Login {
 	margin-bottom: 10px;
 }
 
-td>span {
+#Login span {
 	font-size: 15pt;
 }
 
@@ -62,14 +61,14 @@ td>span {
 	width: 200px;
 }
 
-input[type="submit"], input[type="reset"] {
+#login_sub, #login_res {
 	border-radius: 2px;
 	font-size: 12pt;
 	background: white;
 	border: 1px solid gray;
 }
 
-input[type="reset"] {
+#login_res {
 	margin-left: 15px;
 }
 

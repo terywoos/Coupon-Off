@@ -25,8 +25,8 @@
 						<td> <input type="password" id="MPw" name="MPw"> </td>
 					</tr>
 				</table>
-				<input type="submit" id="sub" name="sub" value="확인">
-				<input type="reset" id="res" name="res" value="취소"><br>
+				<input type="submit" id="login_sub" name="sub" value="확인">
+				<input type="reset" id="login_res" name="res" value="취소"><br>
 			</form>
 			<a href="#">회원가입</a>
 		</div>
