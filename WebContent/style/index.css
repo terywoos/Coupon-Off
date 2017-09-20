@@ -47,9 +47,7 @@ span
 	position:absolute;
 }
 
-#loginWindow {
-	width: 550px;
-	height: 350px;
+#ajaxWindow {
 	display: hidden;
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;

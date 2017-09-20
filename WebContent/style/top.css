@@ -20,21 +20,21 @@
 	cursor: pointer;
 }
 
-#top_login {
+#top_container {
 	height: 75px;
 	display: inline-block;
 	position: absolute;
 	right: 200px;
 }
 
-#top_login >a {
+#top_container a {
 	margin-left: 40px;
 	display: inline;
 	vertical-align: -50px;
 	text-decoration: none;
 }
 
-#top_login > :first-child {
+#top_container:first-child {
 	margin-left: 150px;
 }
 

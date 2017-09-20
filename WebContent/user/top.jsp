@@ -44,9 +44,9 @@
 <body>
 	<div id="topbar" align="center">
 		<div id="top_logo"></div>
-		<div id="top_login">
-			<a href="#" id="login">로그인</a>
-			<a href="#" id="signUp">회원가입</a>
+		<div id="top_container">
+			<a href="#" id="top_login">로그인</a>
+			<a href="#" id="top_signUp">회원가입</a>
 		</div>
 	</div>
 </body>

@@ -5,17 +5,32 @@
 	font-family: 'Jeju Gothic', sans-serif;
 	width: 500px;
 	height: 400px;
-	border: 1px solid black;
 	border-radius: 3px;
-	background: white;
+	background-color: white;
+	opacity: 0.7;
 }
 
 #signup_upper {
-	background-color: #f8b2c5;
+	background-color: #3961a0;
 	height: 50px;
 	border-bottom: 1px solid gray;
 	font-size: 20pt;
 	line-height: 50px;
+	color: white;
+	position:relative;
+}
+
+#close {
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/close.png");
+	background-size: cover;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+#close:hover {
+	cursor: pointer;
 }
 
 #signup_container {
@@ -28,10 +43,22 @@
 	left: 100px;
 }
 
+#signUp {
+	margin-bottom: 20px;
+}
 #signUp td {
 	font-size: 14pt;
 }
 
 #signUp input[type="text"], #signUp input[type="password"] {
 	width: 150px;
+}
+
+#signUp input[type="button"], #signup_lower input[type="submit"], #signup_lower input[type="reset"] {
+	border-radius: 3px;
+	background-color: white;
+}
+
+#signup_lower input[type="reset"] {
+	margin-left: 30px;
 }

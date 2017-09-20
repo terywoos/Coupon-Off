@@ -8,7 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
 	$(document).ready(function() {
-		$("#login").click(function(){
+		$("#top_login").click(function(){
 			var width = $('body').prop('scrollWidth');
 			var height = $('body').prop('scrollHeight');
 			
@@ -21,11 +21,39 @@
 			$.ajax({
 				 url:"login/login.jsp",
 				 success:function(data){
-					$("#loginWindow").empty();
-					$("#loginWindow").append(data);
-					$("#loginWindow").css({
+					$("#ajaxWindow").empty();
+					$("#ajaxWindow").append(data);
+					$("#ajaxWindow").css({
 						"display":"block",
-						"margin": "auto"
+						"margin": "auto",
+						"width": "550px",
+						"height": "350px"
+					});
+				 }
+			});
+		});	
+		
+		$("#top_signUp").click(function(){
+			//회원가입클릭 
+			var width = $('body').prop('scrollWidth');
+			var height = $('body').prop('scrollHeight');
+			
+			$("#blackScreen").css({
+				"width": width,
+				"height":height,
+				"display": "block"
+			});
+			
+			$.ajax({
+				 url:"login/join.jsp",
+				 success:function(data){
+					$("#ajaxWindow").empty();
+					$("#ajaxWindow").append(data);
+					$("#ajaxWindow").css({
+						"display":"block",
+						"margin": "auto",
+						"width": "500px",
+						"height": "400px"
 					});
 				 }
 			});
@@ -33,7 +61,32 @@
 		
 		$(document).on("click","#close",function() {
 			$("#blackScreen").css("display","none");
-			$("#loginWindow").css("display","none");
+			$("#ajaxWindow").css("display","none");
+		});
+		
+		$(document).on("click","#login_signup",function() {
+			var width = $('body').prop('scrollWidth');
+			var height = $('body').prop('scrollHeight');
+			
+			$("#blackScreen").css({
+				"width": width,
+				"height":height,
+				"display": "block"
+			});
+			
+			$.ajax({
+				 url:"login/join.jsp",
+				 success:function(data){
+					$("#ajaxWindow").empty();
+					$("#ajaxWindow").append(data);
+					$("#ajaxWindow").css({
+						"display":"block",
+						"margin": "auto",
+						"width": "500px",
+						"height": "400px"
+					});
+				 }
+			});
 		});
 	});
 	
@@ -43,7 +96,7 @@
 </head>
 <body>
 		<div id="blackScreen">
-			<div id="loginWindow"></div>
+			<div id="ajaxWindow"></div>
 		</div>
 		
 		<div class="top">
