@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 	//아이디 중복확인 클릭 메소드
-	$("#checkId").click(function(){
+	$(document).on("click","#checkId",function(){
   	  
 		var idValue = $('#Cidx').val();
 	      idValue = idValue.split(' ').join('');
@@ -14,7 +14,7 @@ $(document).ready(function(){
 	 		$.ajax({
 	             
 	            type :"post",
-	            url : "checkId.jsp",
+	            url : "login/checkId.jsp",
 	            data : {Cidx : idValue},
 	            error : function(){
 	                alert('통신실패!!');
@@ -34,7 +34,7 @@ $(document).ready(function(){
 		}
 	});
 	//회원가입 클릭 메소드
-	$("#CmemberOk").click(function(){
+	$(document).on("click","#CmemberOk",function(){
 		
 		var idVal = $("#Cidx").val();
 		var pwVal = $("#Cpw").val();
@@ -74,7 +74,7 @@ $(document).ready(function(){
 			$.ajax({
 				
 				type : "POST",
-				url : "memberOk.jsp",
+				url : "login/memberOk.jsp",
 				data : {Cidx : idVal,
 						Cpw : pwVal,
 						Cname : naVal,
@@ -87,7 +87,7 @@ $(document).ready(function(){
 				success : function Result(data){
 					if(data.trim() == "Ok"){
 						alert("회원가입에 성공하였습니다.");
-						location.href="../index.jsp";
+						location.href="index.jsp";
 					}
 					else {
 						alert("회원가입에 실패하였습니다.");
@@ -97,7 +97,7 @@ $(document).ready(function(){
 		}
 	});
 	//로그인
-	$("#CLogBtn").click(function(){
+	$(document).on("click","#CLogBtn",function(){
 		var idVal = $("#Cidx").val();
 		var pwVal = $("#Cpw").val();
 		idVal = idVal.split(' ').join(''); pwVal = pwVal.split(' ').join('');
@@ -113,16 +113,17 @@ $(document).ready(function(){
 		else {
 			$.ajax({
 				type : "POST",
-				url : "loginOk.jsp",
+				url : "login/loginOk.jsp",
 				data : {Cidx : idVal,
 						Cpw : pwVal},
-				error : function(){
-					alert("통신 실패");
+				error : function(err){
+					alert(err);
+					console.log(err);
 				},
 				success : function CLogin(data){
 					if(data.trim() == "Ok"){
 						alert("로그인 성공");
-						location.href="../index.jsp";
+						location.href="index.jsp";
 					}
 					else {
 						alert("아이디 or 비밀번호가 틀렸습니다.");
@@ -131,4 +132,64 @@ $(document).ready(function(){
 			});
 		}
 	});
+	
+	//index 에서 로그인 클릭시
+	$(document).on("click","#top_login",function(){
+		var width = $('body').prop('scrollWidth');
+		var height = $('body').prop('scrollHeight');
+		
+		$("#blackScreen").css({
+			"width": width,
+			"height":height,
+			"display": "block"
+		});
+		
+		$.ajax({
+			 url:"login/login.jsp",
+			 success:function(data){
+				$("#ajaxWindow").empty();
+				$("#ajaxWindow").append(data);
+				$("#ajaxWindow").css({
+					"display":"block",
+					"margin": "auto",
+					"width": "550px",
+					"height": "350px"
+				});
+			 }
+		});
+	});
+	
+	//로그인창에서 X버튼 눌렀을때
+	$(document).on("click","#Cclose",function() {
+		$("#blackScreen").css("display","none");
+		$("#ajaxWindow").css("display","none");
+	});
+	
+	//index에서 회원가입 클릭했을때
+	$(document).on("click","#top_member",function(){
+		//회원가입클릭 
+		var width = $('body').prop('scrollWidth');
+		var height = $('body').prop('scrollHeight');
+		
+		$("#blackScreen").css({
+			"width": width,
+			"height":height,
+			"display": "block"
+		});
+		
+		$.ajax({
+			 url:"login/member.jsp",
+			 success:function(data){
+				$("#ajaxWindow").empty();
+				$("#ajaxWindow").append(data);
+				$("#ajaxWindow").css({
+					"display":"block",
+					"margin": "auto",
+					"width": "500px",
+					"height": "400px"
+				});
+			 }
+		});
+	});	
+	
 });
