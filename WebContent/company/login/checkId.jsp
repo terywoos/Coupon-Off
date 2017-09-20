@@ -12,8 +12,7 @@
 		String Cidx = request.getParameter("Cidx");
 		
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection
-			("jdbc:mysql://localhost/CooDB","root","1234");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/CooDB","root","1234");
 		Statement stmt = conn.createStatement();
 		
 		ResultSet rs = stmt.executeQuery("select * from Coo_companyTB where Cidx='" + Cidx + "';");

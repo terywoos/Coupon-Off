@@ -39,13 +39,12 @@
 				pstmt.setString(6, Cemail);
 				pstmt.executeUpdate();
 				out.println("<script>alert('회원가입 완료'); </script>");
-				
-				conn.close();
-				pstmt.close();
 			}
 			else{
 				out.println("<script>alert('모든 정보를 입력해주세요.'); history.go(-1);</script>");
 			}
+			conn.close();
+			pstmt.close();
 		}
 		catch(Exception e){
 			e.printStackTrace();
