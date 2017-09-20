@@ -3,8 +3,10 @@
 <script>
 	$(document).ready(function(){
 		$(document).on("click","#pList figure",function(){
-			$(this).toggle();
-		})
+			var $blank = $("<div class='blank'></div>");
+			alert($(this).css("display"));
+			//alert($blank.toggle());
+		});
 		
 	});
 
@@ -12,7 +14,7 @@
 <div id="productList">
 	<div class="title">제품리스트</div>
 	<div id="pList">
-		<figure style="opacity:0.5">
+		<figure>
 			<div class="img">
 				<span class="size">XL</span>
 			</div>
