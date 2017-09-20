@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../../style/userLogin.css"></link>
+<link rel="stylesheet" type="text/css" href="../style/userLogin.css"></link>
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="container" align="center">
+	<div id="login_container" align="center">
 		<div id="upper">
 			<span>로그인</span>
+			<div id="close"></div>
 		</div>
 		<div id="lower" align="center">
 			<form action="loginSvr.jsp" method="POST">

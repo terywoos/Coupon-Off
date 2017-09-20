@@ -9,8 +9,8 @@
 <script>
 	$(document).ready(function() {
 		$("#login").click(function(){
-			var width = $(window).width();
-			var height = $(window).height();
+			var width = $('body').prop('scrollWidth');
+			var height = $('body').prop('scrollHeight');
 			
 			$("#blackScreen").css({
 				"width": width,
@@ -18,13 +18,34 @@
 				"display": "block"
 			});
 			
+			$.ajax({
+				 url:"login/login.jsp",
+				 success:function(data){
+					$("#loginWindow").empty();
+					$("#loginWindow").append(data);
+					$("#loginWindow").css({
+						"display":"block",
+						"margin": "auto"
+					});
+				 }
+			});
+		});	
+		
+		$(document).on("click","#close",function() {
+			$("#blackScreen").css("display","none");
+			$("#loginWindow").css("display","none");
 		});
 	});
+	
+	
 </script>
 <title>Couponoff</title>
 </head>
 <body>
-		<div id="blackScreen"></div>
+		<div id="blackScreen">
+			<div id="loginWindow"></div>
+		</div>
+		
 		<div class="top">
 	      <%@include file="top.jsp"%>
 	   </div>

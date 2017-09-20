@@ -1,14 +1,10 @@
 @charset "UTF-8";
 
-body {
+#topbar {
 	width: 100%;
 	height: 75px;
 	margin: 0px;
 	padding: 0px;
-	min-width: 1300px;
-}
-
-#topbar {
 	position: relative;
 }
 

@@ -5,6 +5,7 @@ body
 {
    margin : 0px;
    position: relative;
+	min-width: 1300px;
 }
 .top
 {
@@ -41,8 +42,15 @@ span
 }
 #blackScreen {
 	z-index: 999;
-	background-color: black;
-	opacity: 0.6;
-	position:absolute;
+	background-color: rgba(0, 0, 0, 0.6);
 	display:hidden;
+	position:absolute;
+}
+
+#loginWindow {
+	width: 550px;
+	height: 350px;
+	display: hidden;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
 }
