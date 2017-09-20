@@ -4,7 +4,7 @@
 	<div class="title">회원정보</div>
 	<div class="cp"><span>9</span></div>
 	<div class="userInfo">
-		<div class="userName"><span>임민정</span>님</div>
+		<div class="userName"><span>임민정</span>님</div><div class="cpCnt"><span>1</span></div>
 		<span>등급</span> VIP <span>포인트</span><span class="pt">2000</span>점
 	</div>
 	<div class="subTitle">::: 최근 구매 내역 :::</div>
