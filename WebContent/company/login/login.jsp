@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="../../js/company.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +12,7 @@
 	<div align="center">
 		<h2>로그인</h2>
 		<hr>
-		<form action="loginOk.jsp" method="POST">
+		<form id="LoginForm">
 			<table id="Login" class="Login" name="Login">
 				<tr>
 					<td> 아이디 </td>
@@ -25,7 +27,7 @@
 					<td> <input type="radio" class="Posi" name="Posi" value="사업자"> 사업자 </td>
 				</tr>
 			</table>
-			<input type="submit" id="sub" name="sub" value="확인">
+			<input type="button" id="CLogBtn" name="CLogBtn" value="확인">
 			<input type="reset" id="res" name="res" value="취소">
 			<a href="member.jsp">회원가입</a>
 		</form>

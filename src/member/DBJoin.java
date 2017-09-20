@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBJoin {
 	public Connection joinDB() {
 		
-		String url="jdbc:mysql://localhost/memberDB";
+		String url="jdbc:mysql://localhost/CooDB";
 		Connection conn = null;
 		
 		try {
