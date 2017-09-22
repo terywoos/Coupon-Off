@@ -3,7 +3,11 @@ package member;
 import java.sql.*;
 
 public class CLogin extends DBJoin{
-	private String Cidx , Cpw;
+	private String Cidx , Cpw , Cname;
+	public String getCname() {
+		return Cname;
+	}
+
 	private int Cnum;
 
 	public int getCnum() {
@@ -35,6 +39,7 @@ public class CLogin extends DBJoin{
 			
 			if(rs.next()) {
 				this.Cnum = rs.getInt("Cnum");
+				this.Cname = rs.getString("Cname");
 				String id = rs.getString("Cidx");
 				String pw = rs.getString("Cpw");
 

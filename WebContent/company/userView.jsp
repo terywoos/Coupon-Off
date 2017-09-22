@@ -4,10 +4,11 @@
 	<div class="title">회원정보</div>
 	<div class="cp"><span>9</span></div>
 	<div class="userInfo">
-		<div class="userName"><span>임민정</span>님</div><div class="cpCnt"><span>1</span></div>
-		<span>등급</span> VIP <span>포인트</span><span class="pt">2000</span>점
+		<div class="userName"><span><%=session.getAttribute("MName") %></span>님</div><div class="cpCnt"><span>1</span></div>
+		<span>등급</span> VIP <span>포인트</span><span class="pt"><%=session.getAttribute("MPoint") %></span>점
 	</div>
 	<div class="subTitle">::: 최근 구매 내역 :::</div>
+	
 	<ul class="buyList">
 		<li>09/20 ... 카페라떼 외 3종 .. 12,000원  </li>
 		<li>09/18 ... 카페라떼 외 5종 .. 24,000원  </li>		
