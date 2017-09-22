@@ -98,7 +98,6 @@
 		<div id="blackScreen">
 			<div id="ajaxWindow"></div>
 		</div>
-		
 		<div class="top">
 			<% if(session.getAttribute("ID")==null) {%>
 	      		<%@include file="top.jsp"%>

@@ -6,5 +6,4 @@
 	<%
 		String res = check.check();
 		out.print(res);
-		//
 	%>
