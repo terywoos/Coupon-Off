@@ -4,6 +4,11 @@ import java.sql.*;
 
 public class CLogin extends DBJoin{
 	private String Cidx , Cpw;
+	private int Cnum;
+
+	public int getCnum() {
+		return Cnum;
+	}
 
 	public String getCidx() {
 		return Cidx;
@@ -29,6 +34,7 @@ public class CLogin extends DBJoin{
 			ResultSet rs = stmt.executeQuery("select * from Coo_companyTB where Cidx = '" + Cidx + "';");
 			
 			if(rs.next()) {
+				this.Cnum = rs.getInt("Cnum");
 				String id = rs.getString("Cidx");
 				String pw = rs.getString("Cpw");
 				
