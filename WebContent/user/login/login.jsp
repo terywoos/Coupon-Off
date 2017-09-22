@@ -23,7 +23,6 @@
 				},
 				success: function(data) {
 					//처리부 : 로그인성공(리디렉트) / 존재하지 않는 아이디/ 아이디 비밀번호 확인 두 경우로 나눠서 파악
-					//
 					var res = data.trim();
 					if(res=="success") {
 						//성공
