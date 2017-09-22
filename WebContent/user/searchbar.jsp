@@ -20,7 +20,7 @@
 					text: text
 				},
 				success: function(data) {
-					//어떻게 넘어온 값을 받을까 고민....
+					//어떻게 넘어온 값을 받을까...
 					alert('<%=session.getAttribute("list")%>');
 				}
 				//검색기능작동
