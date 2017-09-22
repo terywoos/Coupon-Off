@@ -10,7 +10,25 @@
 <script>
 	function signUp() {
 		alert("동작");
+		//확인해야할게,  중복확인 버튼 눌렀을 때 어떤 변수에 그 당시의 아이디인풋창의 값을 저장해둬서 회원가입누를 때랑 다르면 중복체크해달라고뜨게.
+		//아이디 최소 몇글자일지 정하기
 		return true;
+	}
+	
+	function check()	{
+		var MId = $("#signup_MId").val();
+		$.ajax({
+			type:"POST",
+			url:"login/idChk.jsp",
+			data: {MId: MId},
+			success: function(data) {
+				if(data.trim()=="accepted") {
+					alert("사용할 수 있는 아이디입니다.");
+				} else {
+					alert("이미 등록된 아이디입니다.");
+				}
+			}
+		});
 	}
 </script>
 </head>
