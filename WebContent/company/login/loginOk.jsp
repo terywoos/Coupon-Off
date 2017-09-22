@@ -13,6 +13,7 @@
 			session.setAttribute("Cidx", Cidx);
 			response.addCookie(new Cookie("Cidx", Cidx));
 			session.setAttribute("Cnum", Login.getCnum());
+			session.setAttribute("Cname", Login.getCname());
 		}
 	%>
 	</jsp:useBean>

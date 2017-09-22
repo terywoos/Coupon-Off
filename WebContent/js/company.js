@@ -27,6 +27,35 @@ $(document).ready(function(){
 		
 	}
 	
+	//Index에서 회원검색 클릭했을때
+	$(document).on("click","#searchBtn",function(){
+		var MPhoneNum = $("#mSearch").val();
+		MPhoneNum = MPhoneNum.split(' ').join('');
+		
+		if(MPhoneNum == ""){
+			alert("고객님 핸드폰 번호를 입력해주세요.");
+			$("#mSearch").focus();
+		}
+		else {
+			$.ajax({
+				type : "POST",
+				url : "searchOk.jsp",
+				data : {MPhoneNum : MPhoneNum},
+				error : function(){
+					alert("통신 실패!");
+				},
+				success : function(data){
+					if(data.trim() == "Ok"){
+						alert("고객정보 불러오기 성공");
+					}
+					else {
+						alert("고객정보가 존재하지 않습니다.");
+					}
+				}
+			});
+		}
+	});
+	
 	//아이디 중복확인 클릭 메소드
 	$(document).on("click","#checkId",function(){
   	  
