@@ -1,5 +1,32 @@
 
 $(document).ready(function(){
+	
+	function popup(pUrl,pWidth,pHeight){
+		var width = $('body').prop('scrollWidth');
+		var height = $('body').prop('scrollHeight');
+		
+		$("#blackScreen").css({
+			"width": width,
+			"height":height,
+			"display": "block"
+		});
+		
+		$.ajax({
+			 url:pUrl,
+			 success:function(data){
+				$("#ajaxWindow").empty();
+				$("#ajaxWindow").append(data);
+				$("#ajaxWindow").css({
+					"display":"block",
+					"margin": "auto",
+					"width": pWidth,
+					"height": pHeight
+				});
+			 }
+		});
+		
+	}
+	
 	//아이디 중복확인 클릭 메소드
 	$(document).on("click","#checkId",function(){
   	  
@@ -135,28 +162,7 @@ $(document).ready(function(){
 	
 	//index 에서 로그인 클릭시
 	$(document).on("click","#top_login",function(){
-		var width = $('body').prop('scrollWidth');
-		var height = $('body').prop('scrollHeight');
-		
-		$("#blackScreen").css({
-			"width": width,
-			"height":height,
-			"display": "block"
-		});
-		
-		$.ajax({
-			 url:"login/login.jsp",
-			 success:function(data){
-				$("#ajaxWindow").empty();
-				$("#ajaxWindow").append(data);
-				$("#ajaxWindow").css({
-					"display":"block",
-					"margin": "auto",
-					"width": "550px",
-					"height": "350px"
-				});
-			 }
-		});
+		popup("login/login.jsp","550px","350px");
 	});
 	
 	//로그인창에서 X버튼 눌렀을때
@@ -168,28 +174,6 @@ $(document).ready(function(){
 	//index에서 회원가입 클릭했을때
 	$(document).on("click","#top_member",function(){
 		//회원가입클릭 
-		var width = $('body').prop('scrollWidth');
-		var height = $('body').prop('scrollHeight');
-		
-		$("#blackScreen").css({
-			"width": width,
-			"height":height,
-			"display": "block"
-		});
-		
-		$.ajax({
-			 url:"login/member.jsp",
-			 success:function(data){
-				$("#ajaxWindow").empty();
-				$("#ajaxWindow").append(data);
-				$("#ajaxWindow").css({
-					"display":"block",
-					"margin": "auto",
-					"width": "500px",
-					"height": "400px"
-				});
-			 }
-		});
+		popup("login/member.jsp","500px","400px");
 	});	
-	
 });

@@ -15,7 +15,7 @@
 <%
 	request.setCharacterEncoding("utf-8");
 
-	//int cNum = session.getAttribute("Cnum");
+	String cNum = (String)session.getAttribute("Cnum");
 	
 	int maxSize = 1024*1024*10;
 	
@@ -45,7 +45,7 @@
 		//System.out.println(uploadPath + uploadFile);
 		Upload upload = new Upload();
 
-		if(upload.setRegister("1", idx, name, price).equals("ok") && upload.setRegistImg("1", imgUrl).equals("ok")){
+		if(upload.setRegister(cNum, idx, name, price).equals("ok") && upload.setRegistImg(imgUrl).equals("ok")){
 			response.sendRedirect("../company/index.jsp");
 		};
 		

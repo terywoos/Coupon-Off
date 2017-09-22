@@ -1,6 +1,6 @@
 package uploads;
 
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.sql.SQLException;
 import java.util.UUID;
 
@@ -12,6 +12,7 @@ public class Upload extends DBJoin{
 	String pName;
 	String pPrice;
 	String imgUrl;
+	String pNum;
 	
 	UploadUtil utils;
 
@@ -57,8 +58,13 @@ public class Upload extends DBJoin{
 			pstmt.setString(2, idx);
 			pstmt.setString(3, name);
 			pstmt.setString(4, price);
-			
 			pstmt.executeUpdate();
+			
+			Statement stmt = joinDB().createStatement();
+			
+			ResultSet rs = stmt.executeQuery("select Pnum from Coo_productTB where idx='"+idx+"'");
+			
+			pNum = rs.getString("Pnum");
 			
 			registed = "ok";
 		}
@@ -68,7 +74,7 @@ public class Upload extends DBJoin{
 		return registed;
 	}
 	
-	public String setRegistImg(String pnum, String imgUrl) {
+	public String setRegistImg(String imgUrl) {
 		String registed = null;
 		
 		//SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -77,7 +83,7 @@ public class Upload extends DBJoin{
 		
 		try {
 			PreparedStatement pstmt = joinDB().prepareStatement("insert into Coo_productImgTB(Pnum,PIname) values(?,?)");
-			pstmt.setString(1, pnum);			
+			pstmt.setString(1, pNum);			
 			pstmt.setString(2, imgUrl);
 			
 			pstmt.executeUpdate();

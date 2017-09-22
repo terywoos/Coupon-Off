@@ -17,6 +17,12 @@
 <div id="productList">
 	<div class="title">제품리스트</div>
 	<div id="pList">
+		<figure id="PwriteBtn">
+			<div class="img">
+				<span class="size">XL</span>
+			</div>
+			<figcaption>+ 상품등록</figcaption>
+		</figure>
 		<figure>
 			<div class="img">
 				<span class="size">XL</span>
