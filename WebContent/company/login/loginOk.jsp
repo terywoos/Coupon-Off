@@ -12,6 +12,7 @@
 		if(Login.CLogins(Cidx, Cpw).equals("Ok")){
 			session.setAttribute("Cidx", Cidx);
 			response.addCookie(new Cookie("Cidx", Cidx));
+			session.setAttribute("Cnum", Login.getCnum());
 		}
 	%>
 	</jsp:useBean>

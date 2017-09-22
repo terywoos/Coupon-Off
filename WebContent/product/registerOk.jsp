@@ -1,14 +1,21 @@
+<%@page import="java.io.FileWriter"%>
+<%@page import="java.io.BufferedWriter"%>
+<%@page import="java.io.Writer"%>
+<%@page import="java.util.UUID"%>
+<%@page import="uploads.Upload"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="java.io.IOException"%>
-<%@page import="upload.Upload"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import ="java.io.File" %>
 
 <%@ page import ="com.oreilly.servlet.*" %>
-    
+
+ 
 <%
 	request.setCharacterEncoding("utf-8");
+
+	//int cNum = session.getAttribute("Cnum");
 	
 	int maxSize = 1024*1024*10;
 	
@@ -18,11 +25,6 @@
 	String fmt = "utf-8";
 	String uploadFile = "";
 	int read = 0;
-	
-	if(! new File(uploadPath).mkdir()){
-		new File(uploadPath).mkdir();		
-	}
-
 	
 	byte[] buf = new byte[1024];
 	
@@ -34,14 +36,18 @@
 		String price = multi.getParameter("pPrice");
 		String imgUrl = multi.getFilesystemName("pImg");
 		
+		//String saveName = uploadPath+UUID.randomUUID().toString()+"_"+imgUrl;
 		
 		System.out.println(idx+" "+name+" "+price+" "+ imgUrl);
-
-		//new File(uploadPath).mkdir();
 		
-		System.out.println(uploadPath + uploadFile);
 		
+		//new File(uploadPath+saveName);
+		//System.out.println(uploadPath + uploadFile);
 		Upload upload = new Upload();
+
+		if(upload.setRegister("1", idx, name, price).equals("ok") && upload.setRegistImg("1", imgUrl).equals("ok")){
+			response.sendRedirect("../company/index.jsp");
+		};
 		
 	}catch(IOException Ie){
 		Ie.printStackTrace();

@@ -2,6 +2,7 @@ package uploads;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.UUID;
 
 import member.DBJoin;
 
@@ -11,6 +12,8 @@ public class Upload extends DBJoin{
 	String pName;
 	String pPrice;
 	String imgUrl;
+	
+	UploadUtil utils;
 
 	public String getcNum() {
 		return cNum;
@@ -43,18 +46,17 @@ public class Upload extends DBJoin{
 		this.imgUrl = imgUrl;
 	}
 	
-	public String setRegister(String cnum, String idx, String name, String price, String imgUrl) {
+	public String setRegister(String cnum, String idx, String name, String price) {
 		String registed = null;
 		
 		//SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		
 		try {
-			PreparedStatement pstmt = joinDB().prepareStatement("insert into members(Cnum,Pidx,Pname,Pprice) values(?,?,?,?)");
+			PreparedStatement pstmt = joinDB().prepareStatement("insert into Coo_productTB(Cnum,Pidx,Pname,Pprice) values(?,?,?,?)");
 			pstmt.setString(1, cnum);			
 			pstmt.setString(2, idx);
 			pstmt.setString(3, name);
 			pstmt.setString(4, price);
-
 			
 			pstmt.executeUpdate();
 			
@@ -64,6 +66,28 @@ public class Upload extends DBJoin{
 			System.out.println(sqle);
 		}
 		return registed;
-		
 	}
+	
+	public String setRegistImg(String pnum, String imgUrl) {
+		String registed = null;
+		
+		//SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		
+		//UUID uid = UUID.randomUUID();
+		
+		try {
+			PreparedStatement pstmt = joinDB().prepareStatement("insert into Coo_productImgTB(Pnum,PIname) values(?,?)");
+			pstmt.setString(1, pnum);			
+			pstmt.setString(2, imgUrl);
+			
+			pstmt.executeUpdate();
+			
+			registed = "ok";
+		}
+		catch(SQLException sqle) {
+			System.out.println(sqle);
+		}
+		return registed;
+	}
+
 }
