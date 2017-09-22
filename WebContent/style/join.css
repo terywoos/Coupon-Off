@@ -62,3 +62,14 @@
 #signup_lower input[type="reset"] {
 	margin-left: 30px;
 }
+
+.pos {
+	background-color: #81e072;
+}
+
+.neg {
+	background-color: #ed492d;
+}
+.modified {
+	background-color: transparent;
+}

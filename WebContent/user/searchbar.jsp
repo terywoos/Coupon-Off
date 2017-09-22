@@ -5,6 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../style/searchbar.css"></link>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#searchBy").on("input",function(){
+			var text = $("#searchBy").val();
+			if(text=="")
+				return;
+			
+			$.ajax({
+				type:"GET",
+				url:"stampSearchSvr.jsp",
+				data: {
+					text: text
+				},
+				success: function(data) {
+					//어떻게 넘어온 값을 받을까 고민....
+					alert('<%=session.getAttribute("list")%>');
+				}
+				//검색기능작동
+			});
+		});
+	});
+	
+</script>
 <title>Insert title here</title>
 </head>
 <body>
