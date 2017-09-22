@@ -4,9 +4,6 @@
 	<jsp:useBean id="check" class="member.UIdChk"/>
 	<jsp:setProperty property="MId" name="check"/>
 	<%
-		boolean res = check.check();
-		if(res)
-			out.print("accepted");
-		else 
-			out.print("rejected");
+		String res = check.check();
+		out.print(res);
 	%>

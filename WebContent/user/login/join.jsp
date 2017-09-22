@@ -17,19 +17,45 @@
 	
 	function check()	{
 		var MId = $("#signup_MId").val();
+		if(MId=="") {
+			alert("아이디를 입력한 후 중복확인을 진행해주세요.");
+			return;
+		}
+		
 		$.ajax({
 			type:"POST",
 			url:"login/idChk.jsp",
 			data: {MId: MId},
 			success: function(data) {
+				var classes = $("#signup_MId").attr("class");
+				
+				if(classes!=undefined&&classes.includes("modified"))
+					$("#signup_MId").removeClass("modified");
+				
 				if(data.trim()=="accepted") {
 					alert("사용할 수 있는 아이디입니다.");
+					$("#signup_MId").addClass("pos");
 				} else {
 					alert("이미 등록된 아이디입니다.");
+					$("#signup_MId").addClass("neg");
 				}
 			}
 		});
 	}
+	
+	$(document).on("input","#signup_MId",function() {
+		var classes = $(this).attr("class");
+		if(classes=="modified"||classes==undefined)
+			return;
+		
+		if(classes=="pos") {
+			$("#signup_MId").removeClass("pos");
+			$("#signup_MId").addClass("modified");
+		} else {
+			$("#signup_MId").removeClass("neg");
+			$("#signup_MId").addClass("modified");
+		}
+	});
 </script>
 </head>
 <body>

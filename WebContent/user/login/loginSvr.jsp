@@ -7,9 +7,10 @@
 	<jsp:setProperty property="*" name="login"/>
 	<%
 		String res = login.login(); 
-	
+		String id = request.getParameter("MId");
 		if(res.equals("success")) {
 			session.setAttribute("login", "affirmative");
+			session.setAttribute("ID",id);
 		}
 		
 		out.print(res);

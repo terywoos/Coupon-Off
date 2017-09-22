@@ -5,9 +5,9 @@ import java.sql.Statement;
 
 public class UIdChk extends DBConnection	{
 	private String MId;
-	private boolean Checked = true;
+	private String Checked="accepted";
 	
-	public boolean check() {
+	public String check() {
 		connect();
 		ResultSet rs = null;
 		Statement stmt = null;
@@ -17,7 +17,7 @@ public class UIdChk extends DBConnection	{
 			
 			while(rs.next()) {
 				if(MId.equals(rs.getString("MId")))
-					Checked = false;
+					Checked = "rejected";
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

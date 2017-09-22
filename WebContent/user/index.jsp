@@ -100,7 +100,11 @@
 		</div>
 		
 		<div class="top">
-	      <%@include file="top.jsp"%>
+			<% if(session.getAttribute("ID")==null) {%>
+	      		<%@include file="top.jsp"%>
+	      	<%} else  {%>
+	      		<%@include file="UTop.jsp"%>
+	      	<%} %>
 	   </div>
 	   <div class="search">
 	      <%@include file="searchbar.jsp"%>
