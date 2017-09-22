@@ -12,6 +12,5 @@
 			session.setAttribute("login", "affirmative");
 			session.setAttribute("ID",id);
 		}
-		
 		out.print(res);
 	%>
