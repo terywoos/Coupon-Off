@@ -169,6 +169,7 @@ a:visited {
 	height:490px;
 	
 }
+
 #productList figure, .fig{
 	position:relative;
 	display:inline-block;
@@ -181,16 +182,26 @@ a:visited {
 	border-bottom-left-radius: 1.5em;
 }
 
-#productsList #PwriteBtn{
+#productList #pList > figure:first-child {
 	display:block;
-	border:1px solid red;
+	float:left;
+	text-align:center;
 }
+
+#productList #pList > figure:first-child > figcaption{
+	display:block;
+	width:100%;
+	height:52%;
+	border:1px solid black;
+	padding-top:48%;
+}
+
 
 #productList figure > .img{
 	position:relative;
 	display:block;
 	background-image: url("../images/coffee.png");
-	width:130px;
+	width:100%;
 	height:100px;
 	border:1px solid #cdcdcd;
 	background-size: cover;

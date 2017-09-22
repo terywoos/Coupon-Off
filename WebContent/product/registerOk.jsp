@@ -15,7 +15,7 @@
 <%
 	request.setCharacterEncoding("utf-8");
 
-	String cNum = (String)session.getAttribute("Cnum");
+	int cNum = (Integer)session.getAttribute("Cnum");
 	
 	int maxSize = 1024*1024*10;
 	

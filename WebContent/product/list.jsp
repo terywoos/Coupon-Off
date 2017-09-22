@@ -3,12 +3,12 @@
 <script>
 	$(document).ready(function(){
 		$(document).on("click","#pList figure",function(){
-			var $blank = $("<div class='blank'></div>");
-			
-			$(this).prepend($blank).on("click",function(){
-				$(this).find($blank).remove();
-			});
-			
+			if($(this).attr("id") != "regBtn"){
+				var $blank = $("<div class='blank'></div>");
+				$(this).prepend($blank).on("click",function(){
+					$(this).find($blank).remove();
+				});
+			}
 		});
 		
 	});
@@ -17,10 +17,7 @@
 <div id="productList">
 	<div class="title">제품리스트</div>
 	<div id="pList">
-		<figure id="PwriteBtn">
-			<div class="img">
-				<span class="size">XL</span>
-			</div>
+		<figure id="regBtn">
 			<figcaption>+ 상품등록</figcaption>
 		</figure>
 		<figure>

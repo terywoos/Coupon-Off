@@ -12,9 +12,14 @@ public class Upload extends DBJoin{
 	String pName;
 	String pPrice;
 	String imgUrl;
-	String pNum;
+	int pNum;
 	
-	UploadUtil utils;
+	public int getpNum() {
+		return pNum;
+	}
+	public void setpNum(int pNum) {
+		this.pNum = pNum;
+	}
 
 	public String getcNum() {
 		return cNum;
@@ -47,35 +52,43 @@ public class Upload extends DBJoin{
 		this.imgUrl = imgUrl;
 	}
 	
-	public String setRegister(String cnum, String idx, String name, String price) {
+	public String setRegister(int cnum, String idx, String name, String price) throws SQLException {
 		String registed = null;
 		
 		//SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		
 		try {
 			PreparedStatement pstmt = joinDB().prepareStatement("insert into Coo_productTB(Cnum,Pidx,Pname,Pprice) values(?,?,?,?)");
-			pstmt.setString(1, cnum);			
+			pstmt.setInt(1, cnum);			
 			pstmt.setString(2, idx);
 			pstmt.setString(3, name);
 			pstmt.setString(4, price);
 			pstmt.executeUpdate();
+
+			System.out.println(cnum+" "+idx+" "+name+" "+price);
+			pstmt.close();
 			
 			Statement stmt = joinDB().createStatement();
 			
-			ResultSet rs = stmt.executeQuery("select Pnum from Coo_productTB where idx='"+idx+"'");
+			ResultSet rs = stmt.executeQuery("select Pnum from Coo_productTB where Pidx='"+idx+"'");
 			
-			pNum = rs.getString("Pnum");
+			if(rs.next()) {
+				pNum = rs.getInt("Pnum");
+				System.out.println("pNum =>"+pNum);
+			}
 			
 			registed = "ok";
 		}
 		catch(SQLException sqle) {
 			System.out.println(sqle);
+		}finally {
+			joinDB().close();
 		}
 		return registed;
 	}
 	
 	public String setRegistImg(String imgUrl) {
-		String registed = null;
+		String imgReged = null;
 		
 		//SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		
@@ -83,17 +96,19 @@ public class Upload extends DBJoin{
 		
 		try {
 			PreparedStatement pstmt = joinDB().prepareStatement("insert into Coo_productImgTB(Pnum,PIname) values(?,?)");
-			pstmt.setString(1, pNum);			
+			pstmt.setInt(1, pNum);			
 			pstmt.setString(2, imgUrl);
+			
+			System.out.println("pNum =>"+pNum+" imgUrl =>"+imgUrl);
 			
 			pstmt.executeUpdate();
 			
-			registed = "ok";
+			imgReged = "ok";
 		}
 		catch(SQLException sqle) {
 			System.out.println(sqle);
 		}
-		return registed;
+		return imgReged;
 	}
 
 }

@@ -176,4 +176,9 @@ $(document).ready(function(){
 		//회원가입클릭 
 		popup("login/member.jsp","500px","400px");
 	});	
+	
+	//product list 뛰움
+	$(document).on("click","#regBtn",function(){
+		popup("../product/register.jsp","500px","500px");
+	})
 });

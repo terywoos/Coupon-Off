@@ -1,15 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="../../js/company.js"></script>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../style/companyMember.css"></link>
-<title>CouponOff - 회원가입(company)</title>
-</head>
-<body>
 	<div id="Cjoin" align="center">
 		<div id="Cmember_upper"  align="center">
 			<span>회원가입</span>
@@ -51,5 +42,3 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
