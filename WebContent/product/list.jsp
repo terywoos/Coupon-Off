@@ -4,8 +4,11 @@
 	$(document).ready(function(){
 		$(document).on("click","#pList figure",function(){
 			var $blank = $("<div class='blank'></div>");
-			alert($(this).css("display"));
-			//alert($blank.toggle());
+			
+			$(this).prepend($blank).on("click",function(){
+				$(this).find($blank).remove();
+			});
+			
 		});
 		
 	});

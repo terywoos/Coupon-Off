@@ -31,6 +31,7 @@ public class CLogin extends DBJoin{
 			if(rs.next()) {
 				String id = rs.getString("Cidx");
 				String pw = rs.getString("Cpw");
+
 				
 				if(id.equals(Cidx) && pw.equals(Cpw)) {
 					Chek = "Ok";
@@ -51,4 +52,5 @@ public class CLogin extends DBJoin{
 		}
 		return Chek;
 	}
+
 }
