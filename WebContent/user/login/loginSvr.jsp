@@ -6,11 +6,13 @@
 	<jsp:useBean id="login" class="member.ULogin"/>
 	<jsp:setProperty property="*" name="login"/>
 	<%
-		String res = login.login(); 
+		int res = login.login();
 		String id = request.getParameter("MId");
-		if(res.equals("success")) {
+		
+	    if(res==1) {
 			session.setAttribute("login", "affirmative");
 			session.setAttribute("ID",id);
+			session.setAttribute("stamps", login.getStamps());
 		}
 		out.print(res);
 	%>

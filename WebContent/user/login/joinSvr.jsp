@@ -6,4 +6,7 @@
 
 	<jsp:useBean id="signup" class="member.USignUp"/>
 	<jsp:setProperty property="*" name="signup"/>
-	<% signup.signUp(); %>
+	<% signup.signUp(); 
+		  response.sendRedirect("../index.jsp");
+	%>
+	

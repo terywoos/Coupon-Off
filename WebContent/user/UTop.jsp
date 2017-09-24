@@ -19,8 +19,8 @@
 	<div id="topbar" align="center">
 		<div id="top_logo"></div>
 		<div id="Utop_container">
-			<a href="#" id="top_login"><%=user %>님 안녕하세요.</a>
-			<a href="#" id="top_signUp">쿠폰함</a>
+			<a href="#" id="UTop_user"><%=user %>님 안녕하세요.</a>
+			<a href="#" id="UTop_coupon">쿠폰함</a>
 			<a href="login/signoutSvr.jsp" id="signout">로그아웃</a>
 		</div>
 	</div>

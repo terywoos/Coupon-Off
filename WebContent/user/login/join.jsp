@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
 	function signUp() {
-		alert("동작");
+		alert("회원가입이 완료되었습니다.");
 		//확인해야할게,  중복확인 버튼 눌렀을 때 어떤 변수에 그 당시의 아이디인풋창의 값을 저장해둬서 회원가입누를 때랑 다르면 중복체크해달라고뜨게.
 		//아이디 최소 몇글자일지 정하기
 		return true;
