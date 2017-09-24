@@ -7,27 +7,61 @@
 <link rel="stylesheet" type="text/css" href="../style/searchbar.css"></link>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
-	$(document).ready(function(){
-		$("#searchBy").on("input",function(){
-			var text = $("#searchBy").val();
-			if(text=="")
-				return;
-			
+	/*
+	function search(event) {
+		event.preventDefault();
+		var text = $("#searchBy").val();
+		if(text=="") {
+			alert("검색하고자 하는 매장명, 매장위치를 입력해주세요.");
+			return false;
+		} else {
 			$.ajax({
 				type:"GET",
-				url:"stampSearchSvr.jsp",
+				url: "stampSearchSvr.jsp",
 				data: {
 					text: text
 				},
-				success: function(data) {
-					//어떻게 넘어온 값을 받을까...
-					alert('<%=session.getAttribute("list")%>');
+				success : function(data) {
+					$("#searchBy").val("");
 				}
-				//검색기능작동
 			});
-		});
-	});
+		}
+	}*/
 	
+	$(document).on("submit","#searchForm",function(e) {
+		e.preventDefault();
+		var text = $("#searchBy").val();
+		if(text=="") {
+			alert("검색하고자 하는 매장명, 매장위치를 입력해주세요.");
+			return false;
+		} else {
+			$.ajax({
+				type:"GET",
+				url: "stampSearchSvr.jsp",
+				dataType: 'xml',
+				data: {
+					text: text
+				},
+				success : function(data) {
+					$("#searchBy").val("");
+					$("#resWindow").empty();
+					$(data).find('stamp').each(function() {
+						var cname = $(this).find("cname").text();
+						var scount = $(this).find("scount").text();
+						var cnum = $(this).find("cnum").text();
+						alert(cnum);
+						var newdiv = $('<div>').addClass("stampResult").attr('data-count',scount).text(cname);
+						//$("#resWindow").append(newdiv).css("display","block");
+						$("#resWindow").append(newdiv).css({
+							"display":"block",
+							"top":"100%",
+							"transition": "top 50ms"
+						});
+					})
+				}
+			});
+		}
+	})
 </script>
 <title>Insert title here</title>
 </head>
@@ -36,10 +70,16 @@
 		<div id="searchbar">
 			<div id="searchbar_text">스탬프검색 : </div>
 			<div id="searchbar_bar">
-				<form method="get">
-					<input type="text" id="searchBy" placeholder="검색하고자 하는 매장명, 매장위치를 입력하세요."/>
+				<form method="get" id="searchForm">
+					<div id="searchbar_innerContainer">
+						<input type="text" id="searchBy" placeholder="검색하고자 하는 매장명, 매장위치를 입력하세요."/>
+						<div id="resWindow">
+			
+						</div>
+					</div>
 					<input type="submit" id="doSearch" value="검색"/>
 				</form>
+				
 			</div>
 		</div>
 	</div>

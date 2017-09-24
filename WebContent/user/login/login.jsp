@@ -24,12 +24,12 @@
 				success: function(data) {
 					//처리부 : 로그인성공(리디렉트) / 존재하지 않는 아이디/ 아이디 비밀번호 확인 두 경우로 나눠서 파악
 					var res = data.trim();
-					if(res=="success") {
+					
+					if(res=="1") {
 						//성공
 						alert("로그인 성공!");
 						location.reload();
-						//세션페이지 하나만들어서 거기로 보내고 거기서 다시 리다이렉트로 보내줘야하는건가봐....
-					} else if(res=="nm") {
+					} else if(res=="2") {
 						alert("아이디와 비밀번호를 확인해주세요.");
 						//아이디 비밀번호 일치하지 않음
 					} else {

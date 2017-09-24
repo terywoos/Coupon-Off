@@ -4,5 +4,6 @@
 <%
 	session.removeAttribute("ID");
 	session.removeAttribute("login");
+	session.removeAttribute("stamps");
 	response.sendRedirect("../index.jsp");
 %>

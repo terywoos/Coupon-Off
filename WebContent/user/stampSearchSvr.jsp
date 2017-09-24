@@ -1,14 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@page import="Search.Stamp"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/xml; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="search" class="Search.StampSearch"/>
+ <jsp:useBean id="function" class="Search.Stamp"/>
  <% 
-
-	 	request.setCharacterEncoding("UTF-8"); 
-	 	search.setText(request.getParameter("text"));
-	 	ArrayList<String> list = search.makeList();
-	 	session.setAttribute("list",list);
-	
+	String text = request.getParameter("text");
+ 	ArrayList<Stamp> list = (ArrayList<Stamp>)session.getAttribute("stamps");
+ 	ArrayList<Stamp> Stamps = function.getAllStamps(text, list);
  %>
+ <content>
+<% 
+	for(Stamp st: Stamps) {
+%>
+	<stamp>
+		<cname><%=st.getCName() %></cname>
+		<scount><%=st.getSCount() %></scount>
+		<cnum><%=st.getCNum()%></cnum>
+	</stamp>
+<%
+	}
+%>
+</content>
 
 
