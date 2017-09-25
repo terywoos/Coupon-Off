@@ -209,7 +209,9 @@ $(document).ready(function(){
 	var $list = $("#userView .buyList");
 	var $priceAll = $("#userView .priceAll > span");
 	var $price = 0;
-	
+	var $cntPrice = 0;
+	var $etcAll;
+	var $pCnt = 1;
 
 	
 	$list.prepend("<li>제품을 선택하세요!!</li>");
@@ -222,31 +224,71 @@ $(document).ready(function(){
 		var pPrice = $(this).find("#pPrice").text();
 		var priceAll = $("#userView .priceAll").find("span").text();
 		
-		var $liContent = $("<li id='"+pNum+"' data-num='"+pNum+"'><span>"+pName+"</span><span>"+pSize+"</span><span>"+pPrice+"</span></li>");
-		
-		$price = $price + parseInt(pPrice);
-		$priceAll.text($price);		
+		var $liContent = $("<li id='"+pNum+"' data-num='"+pNum+"'><span>"+pName+"</span><span>"+pSize+"</span><span>"+pPrice+"</span><span id='etc'>1</span></li>");
 		
 		//alert("합계 : "+$price +" 기존 : "+ priceAll + " 제품가 : " + pPrice);
 		
-		$list.append($liContent);
-
-		
 		if($(this).attr("id") != "regBtn"){
 			var $blank = $("<div class='blank'></div>");
-			$(this).prepend($blank);
+			var $plusBtn = $("<div class='plusBtn'>+</div>");
+			var $minorBtn = $("<div class='minorBtn'>-</div>");
 			
-			$(this).find(".blank").on("click",function(){
-				var priceAll = $("#userView .priceAll").find("span").text();
-				$price = $price - parseInt(pPrice);
-				$($list).find("#"+pNum).remove();
-				$(this).remove();
+			if($(this).has(".blank").length == 0){
+				$list.append($liContent);
+				$(this).prepend($blank).prepend($plusBtn).append($minorBtn);
 				
-				//alert("합계 : "+$price +" 기존 : "+ priceAll + " 제품가 : " + pPrice);
+				$etcAll = $($list).find("#"+pNum+" > #etc");
+				$pCnt = parseInt($etcAll.text());
 				
-				$priceAll.text($price);
+				$price = $price + parseInt(pPrice);				
 				
-			});
+				$(this).find(".plusBtn").on("click",function(){
+					$pCnt++;	
+					$price = $price + parseInt(pPrice);
+					//alert("cnt =>"+$pCnt+" price =>"+$price);
+				});
+				
+				$(this).find(".minorBtn").on("click",function(){
+					$pCnt--;
+					if($pCnt >= 1){
+						//alert("감소");
+						$price = $price - parseInt(pPrice);
+					}else if($pCnt <= 0){
+						alert("제품을 추가 하세요!");
+						$pCnt = 1;
+					}
+				});
+				
+				$(this).find(".blank").on("click",function(){
+
+					$etcAll = $($list).find("#"+pNum+" > #etc");
+					$pCnt = parseInt($etcAll.text());
+					
+					if($pCnt >= 1){
+						$price = $price - (parseInt(pPrice)*$pCnt);
+					}else if($pCnt <= 0){
+						$pCnt = 1;
+					}
+
+					
+					var priceAll = $("#userView .priceAll").find("span").text();
+					$($list).find("#"+pNum).remove();
+					$(this).siblings(".plusBtn").remove();
+					$(this).siblings(".minorBtn").remove();
+					$(this).remove();
+					//alert("합계 : "+$price +" 기존 : "+ priceAll + " 제품가 : " + pPrice);
+					$priceAll.text($price);
+					
+				});
+				
+			}
+
+			//$cntPrice = parseInt(pPrice)*$pCnt;			
+			//var cntPrice = parseInt(pPrice) * $pCnt;
+			
+			$priceAll.text($price);
+			$etcAll.text($pCnt);
+			
 		}				
 
 	});

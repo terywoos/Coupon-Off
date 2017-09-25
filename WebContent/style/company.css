@@ -267,6 +267,35 @@ a:visited {
 	
 }
 
+.plusBtn{
+	position:absolute;
+	display:block;
+	width:20%;
+	height:20%;
+	top:50%;
+	left:-10%;
+	color: #ffffff;
+	font-size:2em;
+	z-index:11;
+	border-radius:2em;
+	background-color: #ca0000;
+	text-align:center;
+}
+.minorBtn{
+	position:absolute;
+	display:block;
+	width:20%;
+	height:20%;
+	top:50%;
+	right:-10%;
+	color: #ffffff;
+	font-size:2em;
+	z-index:11;
+	border-radius:2em;
+	background-color: #ca0000;
+	text-align:center;
+}
+
 .userInfo{
 	position:relative;
 	display:block;
@@ -306,7 +335,7 @@ a:visited {
 	display:inline-block;
 	padding:5px;
 	text-align:center;
-	width:28%;
+	width:20%;
 }
 
 #blackScreen {
