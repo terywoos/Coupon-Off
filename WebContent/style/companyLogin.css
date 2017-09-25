@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+#Clogin_container {
+	font-family: 'Jeju Gothic', sans-serif;
+	width: 550px;
+	height: 350px;
+	border-radius: 10px;
+	position:relative;
+	background-color: white;
+	opacity: 1;
+}
+
+#Cupper {
+	border-bottom: 1px solid gray;
+	background: #3961a0;
+	border-radius: 10px 10px 0px 0px;
+	height: 70px;
+	position: relative;
+}
+
+#Cupper span {
+	line-height: 70px;
+	font-size: 20pt;
+	color: white;	
+}
+
+#Cclose {
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/close.png");
+	background-size: cover;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+#Cclose:hover {
+	cursor: pointer;
+}
+
+#Clower {
+	position: absolute;
+	top: 150px;
+	left: 140px;
+}
+
+#CLogin {
+	margin-bottom: 10px;
+}
+
+#CLogin span {
+	font-size: 15pt;
+}
+
+#Cidx {
+	font-size: 12pt;
+	width: 200px;
+}
+#Cpw {
+	font-size: 12pt;
+	width: 200px;
+}
+
+#CLogBtn, #CLogRes {
+	border-radius: 2px;
+	font-size: 12pt;
+	background: white;
+	border: 1px solid gray;
+}
+
+#CLogRes {
+	margin-left: 15px;
+}
+
+form {
+	margin-bottom: 10px;
+}

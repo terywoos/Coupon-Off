@@ -7,23 +7,23 @@ import java.sql.Statement;
 
 public class idChk extends DBJoin{
 	
-	private String idx;
+	private String Cidx;
 	private String chked = null;
 		
-	public String getIdx() {
-		return idx;
+	public String getCIdx() {
+		return Cidx;
 	}
 
-	public void setIdx(String idx) {
-		this.idx = idx;
+	public void setCIdx(String Cidx) {
+		this.Cidx = Cidx;
 	}
 	
-	public String idCheck(String idx){
+	public String idCheck(String Cidx){
 		
 		try {
 
 			Statement stmt = joinDB().createStatement();
-			ResultSet rs = stmt.executeQuery("select * from members where idx ='"+idx+"'");
+			ResultSet rs = stmt.executeQuery("select * from Coo_companyTB where Cidx ='" + Cidx + "';");
 			
 			
 			if(rs.next()){

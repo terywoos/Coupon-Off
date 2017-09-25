@@ -52,16 +52,25 @@ a:visited {
 	text-decoration: none;
 }
 
+#userView, #productList{
+	border:5px solid #c0c0c0;
+	border-radius: 20px;
+	margin:10px;
+}
 #userView{
 	position:relative;
 	display:block;
 	width:23%;
-	border:5px solid #c0c0c0;
-	border-radius: 20px;
-	margin:10px;
-	height:500px;
+	float:left;
 }
-#userView .title{
+#productList{
+	position:relative;
+	display:block;
+	width:70%;
+	height:550px;
+	float:left;	
+}
+#userView .title,#productList .title{
 	position:relative;
 	display:block;
 	text-align:center;
@@ -74,17 +83,59 @@ a:visited {
 	padding-top:15px;
 }
 
-#userView .subTitle{
+#userView .lists{
 	position:relative;
 	display:block;
-	border-top:1px dashed #999999;
-	border-bottom:1px dashed #999999;
 	width:90%;
-	font-weight:bold;
-	padding: 5px;
 	margin:0 auto;
-	background-color: #ffe8d9;
+	list-style:none;
+	padding:0px;
+}
+
+#userView .listContents{
+	position:relative;
+	display:inline-block;
+	width:100%;
+	margin:25px auto;
+	border:1px solid #808080;
+	background-color:white;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	z-index:1;
+}
+#userView .lists > .nowListBtn{
+	position:absolute;
+	display:block;
+	width:120px	;
+	top:0px;
+	left:0px;
+	font-weight:bold;
+	font-size:1em;
+	padding: 5px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border:1px solid #808080;
+	background-color:white;
+	border-bottom:0px;
 	text-align:center;
+	z-index:2;
+}
+#userView .lists > .pastListBtn{
+	position:absolute;
+	display:block;
+	width:120px;
+	left:120px;
+	top:0px;
+	font-weight:bold;
+	font-size:1em;
+	padding: 5px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border:1px solid #808080;
+	background-color:#c8c8c8;
+	border-bottom:0px;
+	text-align:center;
+	z-index:0;
 }
 
 #userView .cp{
@@ -113,7 +164,7 @@ a:visited {
 	z-index:0;
 }
 
-#userView .cp > span{
+#userView .cp > span,#productList .size{
 	position:absolute;
 	display:block;
 	font-size:130%;
@@ -151,6 +202,71 @@ a:visited {
 	margin:5px;
 }
 
+#productList #pList{
+    column-width:25%;
+    -moz-column-width:25%; /* Firefox */ 
+    -webkit-column-width:25%; /* Safari and Chrome */
+	overflow-y:scroll;
+	overflow-x:hidden;
+	height:490px;
+	
+}
+
+#productList figure, .fig{
+	position:relative;
+	display:inline-block;
+	padding:15px;
+	margin:10px;
+	width:14%;
+	height:150px;
+	border:1px solid #b3b3b3;
+	border-top-right-radius: 1.5em;
+	border-bottom-left-radius: 1.5em;
+}
+
+#productList #pList > figure:first-child {
+	display:block;
+	float:left;
+	text-align:center;
+}
+
+#productList #pList > figure:first-child > figcaption, .figCap{
+	position:relative;
+	display:block;
+	width:100%;
+	height:52%;
+	border:1px solid black;
+	padding-top:48%;
+}
+
+
+#productList figure > .img{
+	position:relative;
+	display:block;
+	width:100%;
+	height:100px;
+	border:1px solid #cdcdcd;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index:0;
+}
+
+.blank{
+	position:absolute;
+	display:block;
+	width:100%;
+	height: 100%;
+	top:0px;
+	left:0px;
+	background-color: #000000;
+	opacity:0.5;
+	z-index:10;
+	border-top-right-radius: 1.4em;
+	border-bottom-left-radius: 1.4em;
+	
+}
+
 .userInfo{
 	position:relative;
 	display:block;
@@ -162,7 +278,7 @@ a:visited {
 	font-size:90%;
 }
 
-.userInfo .pt{
+.userInfo .pt, .price{
 	color:#d1374b;
 	margin:0 5px 0 5px;
 }
@@ -181,7 +297,27 @@ a:visited {
 }
 
 #userView .buyList > li{
-	padding:10px 0 10px 0px;
+	padding:10px 0 0px 0px;
 	border-bottom:1px dashed #999999;
 	text-align:center;
+}
+
+#userView .buyList > li > span{
+	display:inline-block;
+	padding:5px;
+	text-align:center;
+	width:28%;
+}
+
+#blackScreen {
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.6);
+	display:hidden;
+	position:absolute;
+}
+
+#ajaxWindow {
+	display: hidden;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
 }
