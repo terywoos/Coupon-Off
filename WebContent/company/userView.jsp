@@ -19,6 +19,7 @@
 			<ul class="buyList">
 			</ul>
 			<ul class="PBList">
+				<%@ include file="../product/pastList.jsp" %>
 			</ul>
 		</li>
 	</ul>
