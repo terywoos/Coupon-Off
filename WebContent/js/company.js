@@ -204,10 +204,83 @@ $(document).ready(function(){
 	$(document).on("click","#top_member",function(){
 		//회원가입클릭 
 		popup("login/member.jsp","500px","400px");
-	});	
+	});
 	
-	//product list 뛰움
-	$(document).on("click","#regBtn",function(){
+	var $list = $("#userView .buyList");
+	var $priceAll = $("#userView .priceAll > span");
+	var $price = 0;
+	
+
+	
+	$list.prepend("<li>제품을 선택하세요!!</li>");
+	
+	//리스트 이미지 선택시 블랙창 뛰우기 
+	$(document).on("click","#pList figure",function(){
+		var pNum = $(this).find("#pNum").attr("data-num");
+		var pName = $(this).find("#pName").text();
+		var pSize = $(this).find("#pSize").text();
+		var pPrice = $(this).find("#pPrice").text();
+		var priceAll = $("#userView .priceAll").find("span").text();
+		
+		var $liContent = $("<li id='"+pNum+"' data-num='"+pNum+"'><span>"+pName+"</span><span>"+pSize+"</span><span>"+pPrice+"</span></li>");
+		
+		$price = $price + parseInt(pPrice);
+		$priceAll.text($price);		
+		
+		//alert("합계 : "+$price +" 기존 : "+ priceAll + " 제품가 : " + pPrice);
+		
+		$list.append($liContent);
+
+		
+		if($(this).attr("id") != "regBtn"){
+			var $blank = $("<div class='blank'></div>");
+			$(this).prepend($blank);
+			
+			$(this).find(".blank").on("click",function(){
+				var priceAll = $("#userView .priceAll").find("span").text();
+				$price = $price - parseInt(pPrice);
+				$($list).find("#"+pNum).remove();
+				$(this).remove();
+				
+				//alert("합계 : "+$price +" 기존 : "+ priceAll + " 제품가 : " + pPrice);
+				
+				$priceAll.text($price);
+				
+			});
+		}				
+
+	});
+
+	//product 상품등록
+	$(document).on("click touchstart","#regBtn",function(){
 		popup("../product/register.jsp","500px","500px");
 	})
+	
+	$(document).on("click","#pIdChkBtn",function(){
+		var pIdx = $("#pIdx").val();
+	      pIdx = pIdx.split(' ').join('');
+
+			if(pIdx == ""){
+				alert("제품번호를 입력해 주세요!");
+				$('#pIdx').focus();
+
+			}else{
+				$.ajax({
+					url:"../product/checkPid.jsp",
+					type:"POST",
+					data:{
+						pIdx : pIdx
+					},
+					success: function(data){
+						if(data.trim() == "yes"){
+							alert("이미 존재하는 제품번호 입니다.");
+							$('#pIdx').focus();
+						}else{
+							alert("등록 가능한 제품번호 입니다.");
+							$('#pName').focus();
+						}
+					}
+				});
+			}
+	});
 });

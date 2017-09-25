@@ -2,7 +2,6 @@ package uploads;
 
 import java.sql.*;
 import java.sql.SQLException;
-import java.util.UUID;
 
 import member.DBJoin;
 
@@ -10,6 +9,7 @@ public class Upload extends DBJoin{
 	String cNum;
 	String pIdx;
 	String pName;
+	String pSize;
 	String pPrice;
 	String imgUrl;
 	int pNum;
@@ -33,6 +33,12 @@ public class Upload extends DBJoin{
 	public String getpName() {
 		return pName;
 	}
+	public String getpSize() {
+		return pSize;
+	}
+	public void setpSize(String pSize) {
+		this.pSize = pSize;
+	}
 	public String getpPrice() {
 		return pPrice;
 	}
@@ -52,20 +58,21 @@ public class Upload extends DBJoin{
 		this.imgUrl = imgUrl;
 	}
 	
-	public String setRegister(int cnum, String idx, String name, String price) throws SQLException {
+	public String setRegister(int cnum, String idx, String name, String size, String price) throws SQLException {
 		String registed = null;
 		
 		//SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		
 		try {
-			PreparedStatement pstmt = joinDB().prepareStatement("insert into Coo_productTB(Cnum,Pidx,Pname,Pprice) values(?,?,?,?)");
+			PreparedStatement pstmt = joinDB().prepareStatement("insert into Coo_productTB(Cnum,Pidx,Pname,Psize,Pprice) values(?,?,?,?,?)");
 			pstmt.setInt(1, cnum);			
 			pstmt.setString(2, idx);
 			pstmt.setString(3, name);
-			pstmt.setString(4, price);
+			pstmt.setString(4, size);			
+			pstmt.setString(5, price);
 			pstmt.executeUpdate();
 
-			System.out.println(cnum+" "+idx+" "+name+" "+price);
+			System.out.println(cnum+" "+idx+" "+name+" "+size+" "+price);
 			pstmt.close();
 			
 			Statement stmt = joinDB().createStatement();

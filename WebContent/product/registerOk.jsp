@@ -16,11 +16,12 @@
 	request.setCharacterEncoding("utf-8");
 
 	int cNum = (Integer)session.getAttribute("Cnum");
+	String cIdx = (String)session.getAttribute("Cidx");
 	
 	int maxSize = 1024*1024*10;
 	
 	//String uploadPath =  application.getRealPath("/upload/");
-	String realPath = "upload/";
+	String realPath = "upload/"+cIdx+"/";
 	String uploadPath = request.getSession().getServletContext().getRealPath("/")+realPath;
 	String fmt = "utf-8";
 	String uploadFile = "";
@@ -28,24 +29,27 @@
 	
 	byte[] buf = new byte[1024];
 	
+	new File(uploadPath).mkdir();
+	
 	try{
 		MultipartRequest multi = new MultipartRequest(request,uploadPath,maxSize,fmt, new DefaultFileRenamePolicy());
 		
 		String idx = multi.getParameter("pIdx");
 		String name = multi.getParameter("pName");
+		String size = multi.getParameter("pSize");
 		String price = multi.getParameter("pPrice");
 		String imgUrl = multi.getFilesystemName("pImg");
 		
 		//String saveName = uploadPath+UUID.randomUUID().toString()+"_"+imgUrl;
 		
-		System.out.println(idx+" "+name+" "+price+" "+ imgUrl);
+		System.out.println(idx+" "+name+" "+size+""+price+" "+ imgUrl);
 		
 		
 		//new File(uploadPath+saveName);
 		//System.out.println(uploadPath + uploadFile);
 		Upload upload = new Upload();
 
-		if(upload.setRegister(cNum, idx, name, price).equals("ok") && upload.setRegistImg(imgUrl).equals("ok")){
+		if(upload.setRegister(cNum, idx, name, size, price).equals("ok") && upload.setRegistImg(imgUrl).equals("ok")){
 			response.sendRedirect("../company/index.jsp");
 		};
 		
