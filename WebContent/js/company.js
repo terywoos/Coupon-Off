@@ -212,6 +212,8 @@ $(document).ready(function(){
 	var $cntPrice = 0;
 	var $etcAll;
 	var $pCnt = 1;
+	var $buyList = $("#userView .PBList");
+	$buyList.prepend("<li> 최근 구매한 내역입니다 </li>");
 
 	
 	$list.prepend("<li>제품을 선택하세요!!</li>");
@@ -291,6 +293,49 @@ $(document).ready(function(){
 			
 		}				
 
+	});
+	
+	//구매 리스트 구매내역 리스트
+	$(document).on("click", ".pastListBtn", function(){
+		$("#userView .lists > .nowListBtn").css({
+			backgroundColor : '#c8c8c8',
+			zIndex : '0'
+		});
+		$("#userView .lists > .pastListBtn").css({
+			backgroundColor : 'white',
+			zIndex : '2'
+		});
+		$("#userView .buyList").css("display", "none");
+		$("#userView .PBList").css("display", "block");
+		
+		$.ajax({
+			url : "../product/pastList.jsp",
+			error : function(){
+				alert("통신 오류");
+			},
+			success : function(data){
+				if(data.trim() == "Ok"){
+					alert("성공");
+				}
+				else{
+					alert("실패");
+				}
+			}
+		});
+	});
+	
+	$(document).on("click", ".nowListBtn", function(){
+		$("#userView .lists > .nowListBtn").css({
+			backgroundColor : 'white',
+			zIndex : '2'
+		});
+		$("#userView .lists > .pastListBtn").css({
+			backgroundColor : '#c8c8c8',
+			zIndex : '0'
+		});
+		$("#userView .PBList").css("display", "none");
+		$("#userView .buyList").css("display", "block");
+		
 	});
 
 	//product 상품등록

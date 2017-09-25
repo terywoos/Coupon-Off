@@ -18,9 +18,8 @@
 		<li class="listContents">
 			<ul class="buyList">
 			</ul>
-		</li>
-		<li class="pastContents">
-			
+			<ul class="PBList">
+			</ul>
 		</li>
 	</ul>
 	<div class="priceAll">총<span>0</span>원</div>

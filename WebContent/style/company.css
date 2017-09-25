@@ -325,13 +325,22 @@ a:visited {
 	padding:0px;
 }
 
-#userView .buyList > li{
+#userView .PBList{
+	position:relative;
+	display:none;
+	list-style: none;	
+	width:90%;
+	margin:0 auto;
+	padding:0px;
+}
+
+#userView .buyList > li, #userView .PBList > li{
 	padding:10px 0 0px 0px;
 	border-bottom:1px dashed #999999;
 	text-align:center;
 }
 
-#userView .buyList > li > span{
+#userView .buyList > li > span, #userView .PBList > li > span{
 	display:inline-block;
 	padding:5px;
 	text-align:center;
