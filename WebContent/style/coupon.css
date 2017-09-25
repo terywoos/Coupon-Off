@@ -1,0 +1,180 @@
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+.content{width:400px;float:left; margin-top: 25px; margin-left: 20px;}
+.couponform
+{
+	width : 400px;
+	height: 300px;
+	border : 1px solid;
+	display: inline-block;
+	margin-right: 30px;
+	margin-bottom : 15px;
+}
+.Clogo
+{
+	width : 190px;
+	height: 250px;
+	border : 1px solid;
+	margin-top: 25px;
+	margin-left	: 10px;
+	display: inline-block;
+	background-image: url("../images/ediyalogo.png");
+	background-size: cover;
+}
+
+.Cname
+{
+	width : 180px;
+	height: 50px;
+	border: 1px solid;
+	float: right;
+	margin-top: 25px;
+	margin-right: 10px;
+	display: inline-block;
+	background-image: url("../images/ediyaname.jpg");
+	background-size: 180px 50px;
+	background-repeat: no-repeat;
+}
+.Cinfo
+{
+	width : 180px;
+	height: 170px;
+	border : 1px solid;
+	display: inline-block;
+	float: right;
+	margin-top: -195px;
+	margin-right : 10px;
+	
+}
+.Cinfo span
+{
+	text-align : left;
+	font-family: 'Jeju Gothic', sans-serif;
+	color : rgb(29,50,108);
+	padding : 10px;
+	font-size: 20px;
+}
+.couponfont
+{
+	display: inline-block;
+	float: right;
+	margin-top: -10px;
+	margin-right: 55px;
+}
+.couponfont a
+{
+	text-decoration: none;
+	font-family: 'jeju Gothic', sans-serif;
+	font-size : 20px;
+	
+}
+.couponbackform
+{
+	width : 400px;
+	height: 300px;
+	border : 1px solid;
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+.stampform
+{
+	width : 380px;
+	height: 280px;
+	margin: auto;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+.couponbackform .stamp div
+{
+	width :	90px;
+	height: 90px;
+	display: block;
+	float: left;
+	border-radius: 50px;
+	background-image: url("../images/stampOff.png");
+	background-size: cover;
+	
+}
+.stampOn{
+	background-image: url("../images/stampOn.png");
+}
+.back
+{
+	display: none;
+	margin-bottom: 15px;
+}
+#blackScreen {
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.6);
+	display:hidden;
+	position:absolute;
+}
+
+#ajaxWindow {
+	display: hidden;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+.shopInfoForm
+{
+	background: white;
+	width : 800px;
+	height: 400px;
+}
+.Slogo
+{
+	width : 440px;
+	height: 250px;
+	display: inline-block;
+	margin-left: 25px;
+	margin-top: 40px;
+	border: 1px solid
+}
+.Sgoods
+{
+	display: inline-block;
+	width : 440px;
+	height: 100px;
+	border: 1px solid;
+	margin-left: 25px;
+}
+.Sname
+{
+	display: inline-block;
+	width: 220px;
+	height: 60px;
+	border : 1px solid;
+	float: right;
+	margin-top: -252px;
+	margin-right: 70px;
+}
+.Sinfo
+{
+	display: inline-block;
+	float: right;
+	border : 1px solid;
+	width : 250px;
+	height: 270px;
+	margin-top: -180px;
+	margin-right: 55px;
+}
+.close
+{
+	display: inline-block;
+	float : right;
+	width: 25px;
+	height: 25px;
+	margin-top: -290px;
+	margin-right: -305px;
+	background-image: url("../images/close.png");
+	background-size: cover;
+}
+.Sgoodslist
+{
+	display: inline-block;
+	width : 80px;
+	height: 80px;
+	border : 1px solid;
+	margin-top: 10px;
+}
