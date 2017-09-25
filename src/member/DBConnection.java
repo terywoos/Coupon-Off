@@ -1,13 +1,13 @@
-package member;
+ package member;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBConnection {
 	private String Driver = "com.mysql.jdbc.Driver";
-	private final String URL = "jdbc:mysql://localhost/CooDB";
+	private final String URL = "jdbc:mysql://localhost:3307/CooDB";
 	private final String ID = "root";
-	private final String PW = "1q2w3e4r!";
+	private final String PW = "1234";
 	private Connection conn = null;
 	
 	public void connect() {

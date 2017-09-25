@@ -109,11 +109,11 @@
 	      <%@include file="searchbar.jsp"%>
 	   </div>
 	   <div class="banners">
-	      <span>배너</span>   
+	      <%@include file="banner2.jsp"%>
 	   </div>
 	   <section>
 	   <div class="coupon">
-	      <span>쿠폰</span>
+	      <%@include file="coupon/coupon.jsp"%>
 	   </div>
 	   </section>
 	   <footer> 

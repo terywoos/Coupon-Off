@@ -14,9 +14,10 @@ public class USignUp extends DBConnection {
 	private String MEmail;
 
 	public void signUp() {
-		//회원가입처리부
+		//�쉶�썝媛��엯泥섎━遺�
+		System.out.println(MName);
 		connect();
-		//연결
+		//�뿰寃�
 		PreparedStatement pstmt = null;
 		String query ="insert into coo_memberTB (MId,MPw,MName,MPhoneNum,MEmail) values(?,?,?,?,?)";
 		try {

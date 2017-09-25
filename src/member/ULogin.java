@@ -25,15 +25,15 @@ public class ULogin extends DBConnection {
 				pw = rs.getString("MPw");
 				if(MPw.equals(pw)) {
 					Result = 1;
-					//성공
+					//�꽦怨�
 					searchStamps();
 				}	else { 
 					Result=2; 
-					//일치하지않음
+					//�씪移섑븯吏��븡�쓬
 				}
 			} else {
 				Result=3;
-				//아이디없음
+				//�븘�씠�뵒�뾾�쓬
 			}
 			
 		} catch(Exception e) {
