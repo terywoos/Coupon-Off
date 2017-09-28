@@ -31,8 +31,30 @@
 		</span>
 	</div>
 	<div class="userInfo">
-		<div class="userName"><span><%=session.getAttribute("MName") %></span>님</div><div class="cpCnt"><span>1</span></div>
-		<span>등급</span> VIP <span>포인트</span><span class="pt"><%=session.getAttribute("MPoint") %></span>점
+		<% 
+			String MName = (String)session.getAttribute("MName");
+			int MPoint = (Integer)session.getAttribute("MPoint");
+		%>
+		<div class="userName">
+			<span><c:if test="${MName == null }">
+					<c:out value="Guest" />
+					</c:if>
+					<c:if test="${MName != null }"> 
+					<%=session.getAttribute("MName") %>
+					</c:if></span>님
+		</div>
+		<div class="cpCnt">
+			<span>1</span>
+		</div>
+		<span>등급</span> VIP <span>포인트</span>
+		<span class="pt">
+			<c:if test="${MPoint == null }">
+				0
+			</c:if>
+			<c:if test="${MPoint != null }">
+			<%=session.getAttribute("MPoint") %>
+			</c:if>
+		</span>점
 	</div>
 	<ul class="lists">
 		<li class="nowListBtn">구매 리스트</li><li class="pastListBtn">최근 구매 내역</li>
