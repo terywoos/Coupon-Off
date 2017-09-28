@@ -5,14 +5,14 @@
 <head>
 <script src=https://code.jquery.com/jquery-3.2.1.js></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../style/banner2.css?Var=7"></link>
+<link rel="stylesheet" type="text/css" href="../style/banner2.css?Var=8"></link>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <div class="slide">
     <ul class="ulslide">
-        <li><img src="../images/bgtest01.jpg" class="banner_images"></li>
+        <li><img src="../images/bgtest01.png" class="banner_images"></li>
         <li><img src="../images/bgtest02.jpg" class="banner_images"></li>
         <li><img src="../images/bgtest03.jpg" class="banner_images"></li>
         <li><img src="../images/bgtest04.jpg" class="banner_images"></li>
@@ -46,7 +46,7 @@
  			animate();
  		}
 		function animate(){
-			var moveX = current * 1900;
+			var moveX = current * 1000;
 			TweenMax.to(container, 0.8, {marginLeft:-moveX, ease:Expo.easeOut});
 			
 			clearInterval(interval);
