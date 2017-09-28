@@ -38,13 +38,13 @@ public class CLogin extends DBJoin{
 			ResultSet rs = stmt.executeQuery("select * from Coo_companyTB where Cidx = '" + Cidx + "';");
 			
 			if(rs.next()) {
-				this.Cnum = rs.getInt("Cnum");
-				this.Cname = rs.getString("Cname");
 				String id = rs.getString("Cidx");
 				String pw = rs.getString("Cpw");
 
 				
 				if(id.equals(Cidx) && pw.equals(Cpw)) {
+					this.Cnum = rs.getInt("Cnum");
+					this.Cname = rs.getString("Cname");
 					Chek = "Ok";
 				}
 				else {

@@ -7,7 +7,7 @@
 	border-radius: 0px 0px 10px 10px;
 	position:relative;
 	background-color: white;
-	opacity: 1;
+	opacity: 9999;
 }
 
 #Cmember_upper {
@@ -39,7 +39,7 @@
 
 #Cmember_lower {
 	position: absolute;
-	top: 100px;
+	top: 50px;
 	left: 80px;
 }
 
