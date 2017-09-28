@@ -9,11 +9,30 @@
     		String Pname = request.getParameter("pName");
     		String Psize = request.getParameter("pSize");
     		String Pprice = request.getParameter("pPrice");
-    
+    		
+    		String MId = null;
+    		int Cnum = 0;
+    		
+    		if(session.getAttribute("MId") != null){
+    			MId = (String)session.getAttribute("MId");
+    		} 
+    		if(session.getAttribute("Cnum") != null) {
+    			Cnum = (Integer)session.getAttribute("Cnum");
+    		}
+
+    		System.out.println("Cnum = "+Cnum);
     %>
 <div id="userView" data-idx="<%=session.getAttribute("MId")%>">
 	<div class="title">회원정보</div>
-	<div class="cp">
+		<sql:query var="rsLogo" dataSource="jdbc/mysql3">
+			select CIname from Coo_companyImgTB where Cnum = '<%= Cnum %>'
+		</sql:query>
+			<c:if test="${rsLogo.rowCount != 0 }">
+				<c:forEach var="row" items="${rsLogo.rows}">
+					<c:set var="logoImg" value="${row.CIname}"/>
+				</c:forEach>
+			</c:if>
+	<div class="cp" style="background-image: url('../upload/logo/${logoImg}')">
 		<span>
 		<% if( session.getAttribute("MId") != null && session.getAttribute("Cnum") != null ){%>
 		<sql:query var="rs" dataSource="jdbc/mysql3">
