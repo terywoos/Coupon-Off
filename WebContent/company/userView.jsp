@@ -43,6 +43,9 @@
 					${row.SCount}
 				</c:forEach>
 			</c:if>
+			<c:if test="${rs.rowCount ==0 }">
+				<c:out value="0" />
+			</c:if>
 		<%} else{ %>
 			<c:out value="0" />
 		<%} %>
@@ -72,6 +75,9 @@
 						<c:out value="${row3.CPcount }" />
 					</c:forEach>
 				</c:if>
+				<c:if test="${rs3.rowCount == 0 }">
+					<c:out value="0" />
+				</c:if>
 				<%}else {%>
 					<c:out value="0" />
 				<% }%>
@@ -87,6 +93,9 @@
 				<c:forEach var="row2" items="${rs2.rows}">
 					${row2.MPoint}
 				</c:forEach>
+			</c:if>
+			<c:if test="${rs2.rowCount == 0 }">
+				<c:out value="0" />
 			</c:if>
 		<%} else{%>
 			<c:out value="0" />
