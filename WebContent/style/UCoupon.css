@@ -1,0 +1,78 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+body
+{
+   margin : 0px;
+   position: relative;
+	min-width: 1300px;
+}
+.top
+{
+   width: 100%;
+   height: 75px;
+   background: white;
+}
+.search
+{
+   width : 100%;
+}
+
+#UCoupon_container {
+	width: 800px;
+	height: 700px;
+	margin : 100px auto;
+	border: 1px solid black;
+}
+
+#UCoupon_list {
+	width: 99.5%;
+	height: 640px;
+	border: 2px solid black;
+}
+#UCoupon_index {
+	width: 99.5%;
+	height: 55px;
+	border: 2px solid blue;
+}
+#UCoupon_indexlist {
+	text-align:center;
+	padding-left: 0;
+}
+#UCoupon_indexlist li {
+	display: inline-block;
+	width:20px;
+	height: 20px;
+	list-style-type: none;
+}
+#UCoupon_table {
+	margin: auto;
+	border-collapse : collapse;
+}
+.UCoupon_rows {
+	border-bottom : 1px solid black;
+	transition: background-color 0.5s; 
+}
+.UCoupon_rows:hover {
+	background-color: mistyrose;
+	cursor: pointer;
+}
+.UCoupon_cpname {
+	width: 200px;
+}
+#UCoupon_table td{
+	text-align: center;
+} 
+
+#blackScreen {
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.6);
+	display:none;
+	position:absolute;
+}
+
+#ajaxWindow {
+	display: none;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}

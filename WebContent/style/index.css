@@ -21,13 +21,13 @@ body
 {
    width : 100%;
    height : 600px;
-   background: beige;
+   background: white;
 }
 .coupon
 {
    width : 100%;
-   height : 250px;
-   background : darkgray;
+   height : 350px;
+   background : white;
 }
 footer
 {

@@ -7,6 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<div class="shopInfoForm">
+	<div class="Slogo"></div>
+	<div class="Sgoods">
+	<div class="Sgoodslist"></div>
+	</div>
+	<div class="Sname"></div>
+	<div class="Sinfo"></div>
+	<div class="close"></div>
+	</div>
 </body>
 </html>

@@ -9,9 +9,53 @@
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
 	function signUp() {
-		alert("동작");
+		alert("회원가입이 완료되었습니다.");
+		//확인해야할게,  중복확인 버튼 눌렀을 때 어떤 변수에 그 당시의 아이디인풋창의 값을 저장해둬서 회원가입누를 때랑 다르면 중복체크해달라고뜨게.
+		//아이디 최소 몇글자일지 정하기
 		return true;
 	}
+	
+	function check()	{
+		var MId = $("#signup_MId").val();
+		if(MId=="") {
+			alert("아이디를 입력한 후 중복확인을 진행해주세요.");
+			return;
+		}
+		
+		$.ajax({
+			type:"POST",
+			url:"login/idChk.jsp",
+			data: {MId: MId},
+			success: function(data) {
+				var classes = $("#signup_MId").attr("class");
+				
+				if(classes!=undefined&&classes.includes("modified"))
+					$("#signup_MId").removeClass("modified");
+				
+				if(data.trim()=="accepted") {
+					alert("사용할 수 있는 아이디입니다.");
+					$("#signup_MId").addClass("pos");
+				} else {
+					alert("이미 등록된 아이디입니다.");
+					$("#signup_MId").addClass("neg");
+				}
+			}
+		});
+	}
+	
+	$(document).on("input","#signup_MId",function() {
+		var classes = $(this).attr("class");
+		if(classes=="modified"||classes==undefined)
+			return;
+		
+		if(classes=="pos") {
+			$("#signup_MId").removeClass("pos");
+			$("#signup_MId").addClass("modified");
+		} else {
+			$("#signup_MId").removeClass("neg");
+			$("#signup_MId").addClass("modified");
+		}
+	});
 </script>
 </head>
 <body>
