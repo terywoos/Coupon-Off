@@ -33,6 +33,10 @@
 			});
 		});	
 		
+		$("#top_logo").click(function() {
+			location.href = "index.jsp";
+		});
+		
 		$("#top_signUp").click(function(){
 			//회원가입클릭 
 			var width = $('body').prop('scrollWidth');
@@ -98,19 +102,22 @@
 		<div id="blackScreen">
 			<div id="ajaxWindow"></div>
 		</div>
-		
 		<div class="top">
-	      <%@include file="top.jsp"%>
+			<% if(session.getAttribute("ID")==null) {%>
+	      		<%@include file="top.jsp"%>
+	      	<%} else  {%>
+	      		<%@include file="UTop.jsp"%>
+	      	<%} %>
 	   </div>
 	   <div class="search">
 	      <%@include file="searchbar.jsp"%>
 	   </div>
 	   <div class="banners">
-	      <span>배너</span>   
+	      <%@include file="banner2.jsp"%>
 	   </div>
 	   <section>
 	   <div class="coupon">
-	      <span>쿠폰</span>
+	      <%@include file="coupon/coupon.jsp"%>
 	   </div>
 	   </section>
 	   <footer> 

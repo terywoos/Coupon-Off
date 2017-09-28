@@ -1,6 +1,10 @@
 package member;
 
-import com.mysql.jdbc.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class USignUp extends DBConnection {
 	private String MId;
@@ -8,21 +12,40 @@ public class USignUp extends DBConnection {
 	private String MName;
 	private String MPhoneNum;
 	private String MEmail;
-	private Statement stmt = null;
+
 	public void signUp() {
-		System.out.println(MId);
-		System.out.println(MPw);
+		//�쉶�썝媛��엯泥섎━遺�
 		System.out.println(MName);
-		System.out.println(MPhoneNum);
-		System.out.println(MEmail);
-		//제대로 다 받아오고있음
-		
 		connect();
-		System.out.println("접속된 conn객체 : " + getConn());
-		disconnect();
-		System.out.println("접속끝낸 conn객체: " + getConn());
+		//�뿰寃�
+		PreparedStatement pstmt = null;
+		String query ="insert into coo_memberTB (MId,MPw,MName,MPhoneNum,MEmail) values(?,?,?,?,?)";
+		try {
+			pstmt = getConn().prepareStatement(query);
+			pstmt.setString(1, MId);
+			pstmt.setString(2,MPw);
+			pstmt.setString(3, MName);
+			pstmt.setString(4, MPhoneNum);
+			pstmt.setString(5,MEmail);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt!=null)
+					pstmt.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			disconnect();
+		}
+		
+		
 		
 	}
+		
 	
 	public void setMId(String mId) {
 		MId = mId;

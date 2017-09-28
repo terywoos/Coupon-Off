@@ -1,0 +1,29 @@
+@charset "UTF-8";
+#barcodeView_container {
+	width: 450px;
+	height: 235px;
+}
+#barcodeView_upper {
+	height: 35px;
+	position:relative;
+	background-color: white;
+}
+
+#close {
+	width: 24px;
+	height: 24px;
+	background-image: url("../images/close.png");
+	background-size: cover;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+#close:hover {
+	cursor: pointer;
+}
+
+#barcodeView_lower {
+	width: 450px;
+	height: 200px;
+}

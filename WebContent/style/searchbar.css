@@ -29,7 +29,27 @@ body {
 	display: inline-block;
 	width: 380px;
 	margin-left: 10px;
-	
+}
+#searchbar_innerContainer {
+	display: inline-block;
+	width: 305px;
+	position: relative;
+}
+#resWindow {
+	width: 305px;
+	display: none;
+	position:absolute;
+ 	top:75%;
+ 	padding-top: 5px;
+ 	background: white;
+}
+.stampResult {
+	margin-bottom:5px;
+}
+.stampResult:hover {
+	cursor: pointer;
+	background-color: #ced1d1;
+	transition: background-color 500ms;
 }
 #searchBy {
 	width: 300px;
