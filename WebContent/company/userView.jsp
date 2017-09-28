@@ -13,21 +13,20 @@
     %>
 <div id="userView" data-idx="<%=session.getAttribute("MId")%>">
 	<div class="title">회원정보</div>
-	<% if( session.getAttribute("MId") != null && session.getAttribute("Cnum") != null ){%>
+	<div class="cp">
+		<span>
+		<% if( session.getAttribute("MId") != null && session.getAttribute("Cnum") != null ){%>
 		<sql:query var="rs" dataSource="jdbc/mysql3">
 			select SCount from Coo_stampTB where MId = '<%= session.getAttribute("MId") %>' and Cnum = '<%= session.getAttribute("Cnum") %>'
 		</sql:query>
-	<%	} %>
-	<div class="cp">
-		<span>
 			<c:if test="${rs.rowCount != 0}">
 				<c:forEach var="row" items="${rs.rows}">
 					${row.SCount}
 				</c:forEach>
 			</c:if>
-			<c:if test="${rs.rowCount == 0}">
-				<c:out value="0"/>
-			</c:if>
+		<%} else{ %>
+			<c:out value="0" />
+		<%} %>
 		</span>
 	</div>
 	<div class="userInfo">
@@ -44,16 +43,35 @@
 					</c:if></span>님
 		</div>
 		<div class="cpCnt">
-			<span>1</span>
+			<span>
+				<%if(session.getAttribute("MId") != null && session.getAttribute("Cname") != null) {%>
+				<sql:query var="rs3" dataSource="jdbc/mysql3">
+					select count(CPnum) as CPcount from Coo_couponTB where MId = '<%=session.getAttribute("MId") %>' and Cname = '<%=session.getAttribute("Cname") %>';
+				</sql:query>
+				<c:if test="${rs3.rowCount != 0 }">
+					<c:forEach var="row3" items="${rs3.rows}">
+						<c:out value="${row3.CPcount }" />
+					</c:forEach>
+				</c:if>
+				<%}else {%>
+					<c:out value="0" />
+				<% }%>
+			</span>
 		</div>
 		<span>등급</span> VIP <span>포인트</span>
+		<%if(session.getAttribute("MId") != null){%>
+		<sql:query var="rs2" dataSource="jdbc/mysql3">
+			select MPoint from Coo_memberTB where MId = '<%=session.getAttribute("MId") %>';
+		</sql:query>
 		<span class="pt">
-			<c:if test="${MPoint == null }">
-				0
+			<c:if test="${rs2.rowCount != 0 }">
+				<c:forEach var="row2" items="${rs2.rows}">
+					${row2.MPoint}
+				</c:forEach>
 			</c:if>
-			<c:if test="${MPoint != null }">
-			<%=session.getAttribute("MPoint") %>
-			</c:if>
+		<%} else{%>
+			<c:out value="0" />
+		<%} %>
 		</span>점
 	</div>
 	<ul class="lists">
