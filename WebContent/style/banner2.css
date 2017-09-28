@@ -5,16 +5,16 @@ ul, li{
 .banner_images{
 	display: block;
 	border : 0;
-	width : 1900px;
-	height: 600px;
+	width : 1000px;
+	height: 400px;
 }
 .slide{
-	width : 100%;
+	width : 1000px;
 	overflow: hidden;
 	margin : 0 auto;
 }
 .slide ul{
-	width : 9500px;
+	width : 5000px;
 
 	list-style: none;
 	font-size : 0;

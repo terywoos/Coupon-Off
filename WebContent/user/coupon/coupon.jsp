@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../style/coupon.css"></link>
+<link rel="stylesheet" type="text/css" href="../style/coupon.css?var=1"></link>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
 <title>Insert title here</title>
@@ -34,6 +34,13 @@
 			}
 		});
 		
+		load('#form', '2');
+		$(".button").on("click", function(){
+			load('#form', '1', '#btn');
+		});
+		$('.button2').on("click", function(){
+			less('#form', '1', '#btn');
+		});
 	});
 	
 	function shopInfo() {
@@ -64,13 +71,48 @@
 			$("#blackScreen").css("display","none");
 			$("#ajaxWindow").css("display","none");
 	});
-	
+	function load(id, cnt, btn){
+		var list = id + " .load:not(.active)";
+		var length = $(list).length;
+		var total_cnt;
+		//alert(length);
+		if(cnt <= length){
+			total_cnt = cnt;
+		}else {
+			total_cnt = length;
+			
+		alert("확인된 Stamp가 없습니다.");
+		}
+		//alert(length);
+		 $(list + ":lt(" + total_cnt + ")").removeClass("less").addClass("active");
+	}
+	function less(id, cnt, btn){
+		var list = id + " .load.active";
+		var length = $(list).length;
+		var now_cnt;
+
+		if(length == 2){
+			now_cnt = length;
+			alert("못줄임");
+		}else{
+			if(cnt <= length){
+				now_cnt = cnt;
+				//alert(length);
+			
+			}
+			 $(list + ":last(" + now_cnt+ ")").removeClass("active").addClass("less");
+				
+		}
+		//alert(now_cnt);
+		
+	}
 </script>
 </head>
 <body>
 	<div id="blackScreen">
 		<div id="ajaxWindow"></div>
 	</div>
+	<div id="form" class="more">
 		<%
 			if(session.getAttribute("ID")==null) {
 				
@@ -79,7 +121,7 @@
 		%>
 			
 		<% for(int i=0; i<=couponTempList.size()/3; i++) { %>
-			<div id="row<%=i%>" class="rows">
+			<div id="row<%=i%>" class="rows load">
 		<%  
 				for(int j=i*3; j<i*3+3; j++) {  
 					try {
@@ -134,9 +176,15 @@
 		 %>
 		</div>
 		<%}%>
+		<div id="btn" class="btn_wrap">
+			<div class="buttonform">
+			<div class="button"><img src="../images/morebtn.png"></div>
+			<div class="button2"><img src="../images/lessbtn.png"></div>
+			</div>
+		</div>
 	<%}%>
 		
-		
+	</div>	
  
 </body>
 </html>
