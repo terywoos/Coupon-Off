@@ -456,11 +456,11 @@ $(document).ready(function(){
 				alert("통신 오류");
 			},
 			success : function(data){
-				if(data.trim() == "Ok"){
+				if(data.trim() != ""){
 					alert("성공");
 				}
-				else{
-					alert("실패");
+				else {
+					alert("구매내역이 존재하지 않습니다.");
 				}
 			}
 		});
