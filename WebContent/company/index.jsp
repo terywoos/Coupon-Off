@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%  
+	response.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +25,8 @@
 		<%@ include file="userView.jsp" %>
 		<%@ include file="../product/list.jsp" %>
 	</section>
-	<footer></footer>
+	<footer>
+		<%@ include file="orders.jsp" %>
+	</footer>
 </body>
 </html>

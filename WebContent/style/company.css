@@ -1,9 +1,14 @@
 body, html{
 	width:100%;
+	height:100%;
 	padding:0px;
 	margin:0px;
+	overflow:hidden;
 }
 
+li{
+	list-style:none;
+}
 #search{
 	display:block;
 	width:100%;
@@ -20,13 +25,20 @@ body, html{
 	display:block;
 	padding:10px;
 	color:#ffffff;
+	font-size:1.5em;
 }
 
-#memSearch input,button{
+#memSearch input{
 	margin:10px;
-	font-size:150%;
+	font-size:1.2em;
 	border-radius: 5px;
 	border-style: none;
+	outline : none;
+	border:0px;
+}
+
+#memSearch button{
+	
 }
 
 #top #topBtns{
@@ -67,7 +79,7 @@ a:visited {
 	position:relative;
 	display:block;
 	width:70%;
-	height:550px;
+	height:525px;
 	float:left;	
 }
 #userView .title,#productList .title{
@@ -88,19 +100,24 @@ a:visited {
 	display:block;
 	width:90%;
 	margin:0 auto;
-	list-style:none;
 	padding:0px;
 }
+
+
+.backRed{
+	background-color: rgba(233,111,126,0.5);
+}
+
+
 
 #userView .listContents{
 	position:relative;
 	display:inline-block;
 	width:100%;
-	margin:25px auto;
+	margin:25px auto 0px auto;
 	border:1px solid #808080;
 	background-color:white;
-	border-bottom-left-radius:10px;
-	border-bottom-right-radius:10px;
+	border-bottom:0px;
 	z-index:1;
 }
 #userView .lists > .nowListBtn{
@@ -136,6 +153,61 @@ a:visited {
 	border-bottom:0px;
 	text-align:center;
 	z-index:0;
+}
+#orderSpace{
+	position:absolute;
+	display:fixed;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	height:100px;
+	background-color: #6e6e70;
+	padding:0px;
+	z-index:999;	
+}
+#userView .lists .subOrder{
+	position:relative;
+	display:block;
+	width:96%;
+	margin:-5px auto 15px auto;
+	padding:2%;
+	border:1px solid #808080;
+	border-top:0px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	
+}
+#orderSpace .orders{
+	position:relative;
+	display:block;
+	width:20%;
+	float:left;
+}
+#orderSpace .orders > li:nth-child(1){
+	position:relative;
+	display:block;
+	width:100%;
+	font-weight:bold;
+	font-size:1em;
+	padding: 5px 0px 5px 0px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-color:#c8c8c8;
+	border-bottom:0px;
+	text-align:center;
+	z-index:0;
+}
+
+#orderSpace .orders > li:nth-child(2){
+	position:relative;
+	display:inline-block;
+	width:100%;
+	padding:10px 0px 10px 0px;
+	border:1px solid #808080;
+	background-color:white;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	text-align:center;
 }
 
 #userView .cp{
@@ -208,7 +280,7 @@ a:visited {
     -webkit-column-width:25%; /* Safari and Chrome */
 	overflow-y:scroll;
 	overflow-x:hidden;
-	height:490px;
+	height:460px;
 	
 }
 
@@ -262,36 +334,43 @@ a:visited {
 	background-color: #000000;
 	opacity:0.5;
 	z-index:10;
-	border-top-right-radius: 1.4em;
-	border-bottom-left-radius: 1.4em;
-	
+	border-top-right-radius: 0.7em;
+	border-bottom-left-radius: 0.7em;
+	color:#ffffff;
+	font-size:2em;
+	padding:5px 5px 0px -5px;
 }
 
 .plusBtn{
 	position:absolute;
 	display:block;
-	width:20%;
-	height:20%;
-	top:50%;
-	left:-10%;
+	width:30%;
+	height:30%;
+	top:10%;
+	right:5%;
 	color: #ffffff;
-	font-size:2em;
+	font-size:3em;
 	z-index:11;
-	border-radius:2em;
+	border-radius:5em;
 	background-color: #ca0000;
 	text-align:center;
 }
+.plusBtn:hover, .minorBtn:hover{
+	background-color: #6df2da;
+	cursor:pointer;
+}
+
 .minorBtn{
 	position:absolute;
 	display:block;
-	width:20%;
-	height:20%;
-	top:50%;
-	right:-10%;
+	width:30%;
+	height:30%;
+	bottom:10%;
+	right:5%;
 	color: #ffffff;
-	font-size:2em;
+	font-size:3em;
 	z-index:11;
-	border-radius:2em;
+	border-radius:5em;
 	background-color: #ca0000;
 	text-align:center;
 }
@@ -318,9 +397,10 @@ a:visited {
 
 #userView .buyList{
 	position:relative;
-	display:block;
-	list-style: none;	
-	width:90%;
+	display:block;	
+	width:100%;
+	height:200px;
+	overflow-y:scroll;
 	margin:0 auto;
 	padding:0px;
 }
@@ -329,7 +409,7 @@ a:visited {
 	position:relative;
 	display:none;
 	list-style: none;	
-	width:90%;
+	width:100%;
 	margin:0 auto;
 	padding:0px;
 }
@@ -340,11 +420,214 @@ a:visited {
 	text-align:center;
 }
 
-#userView .buyList > li > span, #userView .PBList > li > span{
+#userView .buyList > li > span:nth-child(1){
+	display:inline-block;
+	padding:5px;
+	text-align:left;
+	width:30%;
+}
+#userView .buyList > li > span:nth-child(2){
+	display:inline-block;
+	padding:5px;
+	text-align:left;
+	width:10%;
+}
+
+#userView .buyList > li > span:nth-child(3){
 	display:inline-block;
 	padding:5px;
 	text-align:center;
 	width:20%;
+}
+#userView .buyList > li > span:nth-child(4){
+	display:inline-block;
+	padding:5px;
+	text-align:center;
+	color: #d1374b;
+	font-weight:bold;
+}
+
+
+#userView .subOrder span:nth-child(1){
+	display:inline-block;
+	padding:5px;
+	text-align:left;
+	width:20%;
+	text-align:center;	
+}
+
+#userView .subOrder span:nth-child(2){
+	display:inline-block;
+	padding:5px;
+	text-align:left;
+	width:20%;
+}
+#userView .subOrder span:nth-child(3){
+	display:inline-block;
+	padding:5px;
+	text-align:center;
+	width:30%;
+	color: #d17151;
+	font-weight:bold;
+}
+#userView .subOrder span:nth-child(4){
+	display:inline-block;
+	padding:5px;
+	text-align:center;
+	color: #000000;
+}
+#userView .pointDisc{
+	width:90%;
+	margin:0 auto;
+	border:1px solid #000000;
+	padding:0px;
+}
+
+#userView .pointDisc input{
+	position:relative;
+	display:block;
+}
+#userView .pointDisc span:nth-child(1){
+	position:relative;
+	display:inline-block;
+	width:20%;
+	border:1px solid #000000;
+}
+#userView .pointDisc > .ptInps{
+	position:relative;
+	display:inline-block;
+	width:200px;
+	padding:0px;
+	border:1px solid #000000;
+}
+
+#userView .pointDisc > .ptBtns{
+	position:relative;
+	display:block;
+	width:100%;
+	border:1px solid #000000;
+}
+
+
+#userView .pointDisc input{
+	font-size:1em;
+	width:80px;
+	margin:0px;
+}
+
+#orderSpace .priceAll{
+	position:relative;
+	display:inline-block;
+	font-size:1.2em;	
+	width:23%;
+	height:60px;
+	background-color: #f7ecf3;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border:5px solid #545454;
+	border-top:0px;
+	text-align:center;	
+	margin:0 10px;
+	float:left;
+}
+ #orderSpace .priceAll > span:nth-child(1){
+ 	position:absolute;
+	display:block;
+ 	width:30%;
+ 	top:20px;
+ 	left:10px;
+ }
+ #orderSpace .priceAll > span:nth-child(2){
+ 	position:absolute;
+	display:block;
+	text-align: right;
+	width:40%;
+	height:60px;
+	top:10px;
+	right:50px;
+	font-size:2em;
+	letter-spacing: -2px;
+	font-weight:bold;
+	color:#d1374b
+	
+ }
+#orderSpace .priceAll > span:nth-child(3){
+ 	position:absolute;
+	display:block;
+ 	width:30%;
+ 	top:20px;
+ 	right:-20px;
+ }
+
+#orderSpace #pointBtn{
+	position:relative;
+	display:inline-block;
+	float:left;
+	padding:10px;
+	text-align:center;
+	width:80px;
+	height:20px;
+	border-radius:10px;
+	background-color: #d1374b;
+	color:#ffeded;
+	font-weight:bold;
+	margin:10px;
+	border:2px solid #ffffff;
+}
+
+#orderSpace #CooBtn{
+	position:relative;
+	display:inline-block;
+	padding:10px;
+	float:left;
+	text-align:center;
+	width:80px;
+	height:20px;
+	border-radius:10px;
+	background-color: #814cd1;
+	color:#e8e6ff;
+	font-weight:bold;
+	margin:10px;
+	border:2px solid #ffffff;
+}
+
+ #orderSpace #orderBtn{
+ 	position:relative;
+	display:inline-block;
+	padding:10px;
+ 	outline:0px;
+ 	width:80px;
+	height:80px;
+ 	font-size:1em;
+ 	margin:10px;
+ 	border-radius:10px;
+ 	background-color: #c12814;
+ 	border:2px solid #ffffff;
+ 	color:#ffffff;
+ }
+
+#userView .PBList > li > #PBname{
+   display:inline-block;
+   padding:5px;
+   text-align:center;
+   width:45%;
+   font-size:0.5em;
+}
+
+#userView .PBList > li > #PBprice{
+   display:inline-block;
+   padding:5px;
+   text-align:center;
+   width:20%;
+   font-size:0.7em;
+}
+
+#userView .PBList > li > #regdate{
+   display:inline-block;
+   padding:5px;
+   text-align:center;
+   width:15%;
+   font-size:0.8em;
 }
 
 #blackScreen {
