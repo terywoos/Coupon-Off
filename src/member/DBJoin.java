@@ -13,7 +13,7 @@ public class DBJoin {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(url,"root","1q2w3e4r!");
+			conn = DriverManager.getConnection(url,"root","1234");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
