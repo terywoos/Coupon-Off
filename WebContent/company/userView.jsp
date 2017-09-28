@@ -25,6 +25,9 @@
 					${row.SCount}
 				</c:forEach>
 			</c:if>
+			<c:if test="${rs.rowCount == 0}">
+				<c:out value="0"/>
+			</c:if>
 		</span>
 	</div>
 	<div class="userInfo">
@@ -36,7 +39,7 @@
 		<li class="listContents">
 			<ul class="buyList"></ul>
 			<ul class="PBList">
-				<!-- include file="../product/pastList.jsp" -->
+				<%@include file="../product/pastList.jsp"%>
 			</ul>
 		</li><li class="subOrder"></li>
 	</ul>
