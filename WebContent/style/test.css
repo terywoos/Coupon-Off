@@ -1,0 +1,33 @@
+.load {
+    display: none;
+    width : 400px;
+    height: 300px;
+    background-image: url("../images/bgtest01.jpg");
+}
+.load.active {
+    display: block;
+}
+.load:after {
+    display: none;
+}
+.btn_wrap, .main {
+    display: block;
+}
+.main {
+    max-width: 640px;
+    margin: 0 auto;
+}
+.lists {
+    margin-bottom: 4rem;
+}
+.lists_item {
+    padding: 20px;
+    
+}
+.lists_item:nth-child(2n) {
+    background: #59b1eb;
+   
+}
+.btn_wrap {
+    text-align: center;
+}

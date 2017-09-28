@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../style/index.css"></link>
+<link rel="stylesheet" type="text/css" href="../style/index.css?var=2"></link>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
 	$(document).ready(function() {
@@ -121,7 +121,7 @@
 	   </div>
 	   </section>
 	   <footer> 
-	      <span>풋터</span>
+	      <%@include file="footer.jsp"%>
 	   </footer>
    </body>
 </html>

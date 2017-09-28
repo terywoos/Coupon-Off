@@ -10,9 +10,9 @@
 	margin-bottom : 15px;
 }
 .rows {
-	width: 100%;
+	width: 1260px;
 	height: 350px;
-	text-align: center;
+	margin: 1px auto;
 }
 
 .Clogo
@@ -179,4 +179,68 @@
 	height: 80px;
 	border : 1px solid;
 	margin-top: 10px;
+}
+.load
+{
+	display: none;
+}
+.load.active {
+	display: block;
+}
+
+.load.less{
+	display: none;
+}
+.load:after {
+	display: none;
+}
+.btn_wrap, .more{
+	display: block;
+}
+.more{
+	max-width : 9000px;
+}
+.btn_wrap{
+	text-align: center;
+}
+.buttonform{
+	display: inline-flex;
+}
+.button{
+	margin: auto;
+	width : 80px;
+	height: 80px;
+	border-radius: 50px;
+	border : 1px solid;
+	transition : transform 2s;
+}
+.button:hover
+{
+	transform : scale(1.2,1.2);
+	cursor: pointer;
+}
+.button img{
+	width : 60px;
+	height: 50px;
+	margin: auto;
+	margin-top: 16px;
+}
+.button2{
+	margin: auto;
+	width : 80px;
+	height: 80px;
+	border-radius: 50px;
+	border : 1px solid;
+	transition : transform 2s;
+}
+.button2:hover
+{
+	transform : scale(1.2,1.2);
+	cursor : pointer;
+}
+.button2 img{
+	width : 60px;
+	height: 50px;
+	margin: auto;
+	margin-top: 16px;
 }
