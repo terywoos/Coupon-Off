@@ -36,7 +36,7 @@
 		<li class="listContents">
 			<ul class="buyList"></ul>
 			<ul class="PBList">
-				<!-- include file="../product/pastList.jsp"   -->
+				<%@ include file="../product/pastList.jsp" %>
 			</ul>
 		</li><li class="subOrder"></li>
 	</ul>

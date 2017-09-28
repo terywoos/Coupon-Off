@@ -8,7 +8,7 @@
 		</div>
 		<div id="Cmember_container">
 			<div id="Cmember_lower">
-				<form id="CmemberForm">
+				<form id="CmemberForm" enctype="multipart/form-data">
 					<table id="Cmember" class="Cmember">
 						<tr>
 							<td> 아이디 </td>
@@ -35,6 +35,15 @@
 							<td> 이메일 </td>
 							<td> <input type="text" id="Cemail" name="Cemail" placeholder="couponoff@coupon.com"> </td>
 						</tr>
+						<tr>
+							<td> 매장소개 </td>
+							<td> <textarea id="Cintro" name="Cintro" maxlength="100"></textarea> </td>
+						</tr>
+						<tr>
+							<td> 로고 이미지 </td>
+							<td> <input type="file" id="Clogo" name="Clogo"/> </td>
+						</tr>
+						
 					</table>
 					<input type="button" id="CmemberOk" name="CmemberOk" value="확인">
 					<input type="reset" id="CmemberRe" value="취소">

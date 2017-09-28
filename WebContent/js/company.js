@@ -1,6 +1,5 @@
-
 $(document).ready(function(){
-
+	
 	function searchAct(){
 		var MPhoneNum = $("#mSearch").val();
 		MPhoneNum = MPhoneNum.split(' ').join('');
@@ -20,7 +19,9 @@ $(document).ready(function(){
 				success : function(data){
 					if(data.trim() == "Ok"){
 						alert("고객정보 불러오기 성공");
-						window.location.reload(true);
+						setTimeout(function() {
+							window.location.reload(true);	
+						}, 10000);
 					}
 					else {
 						alert("고객정보가 존재하지 않습니다.");
@@ -112,6 +113,9 @@ $(document).ready(function(){
 		var reVal = $("#Cregion").val();
 		var phVal = $("#Cphone").val();
 		var emVal = $("#Cemail").val();
+		var introVal = $("#Cintro").val();
+		var clogo = $("#Clogo")[0].files[0];
+
 		idVal = idVal.split(' ').join(''); pwVal = pwVal.split(' ').join('');
 		naVal = naVal.split(' ').join(''); reVal = reVal.split(' ').join('');
 		phVal = phVal.split(' ').join(''); emVal = emVal.split(' ').join('');
@@ -141,21 +145,29 @@ $(document).ready(function(){
 			$("#Cemail").focus();
 		}
 		else {
+			var formData = new FormData(); 
+			
+			formData.append("Cidx", idVal); 
+			formData.append("Cpw", pwVal);
+			formData.append("Cname", naVal);
+			formData.append("Cregion", reVal);
+			formData.append("Cphone",phVal);
+			formData.append("Cemail", emVal);
+			formData.append("Cintro",introVal);
+			formData.append("Clogo", clogo );
+			
 			$.ajax({
 				
 				type : "POST",
 				url : "login/memberOk.jsp",
-				data : {Cidx : idVal,
-						Cpw : pwVal,
-						Cname : naVal,
-						Cregion : reVal,
-						Cphone : phVal,
-						Cemail : emVal},
+				data : formData,
+				processData:false,
+				contentType:false,
 				error : function(){
 					alert("통신 실패");
 				},
 				success : function Result(data){
-					if(data.trim() == "Ok"){
+					if(data.trim() == "ok"){
 						alert("회원가입에 성공하였습니다.");
 						location.href="index.jsp";
 					}

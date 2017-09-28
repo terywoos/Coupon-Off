@@ -9,7 +9,7 @@
 	String MId = (String)session.getAttribute("MId");
 	String Cname = (String)session.getAttribute("Cname");
 %>
-<%if(session.getAttribute("MId") != null) {%>
+<%if(MId != "null" && Cname != "null") {%>
 <sql:query var="rs" dataSource="jdbc/mysql3">
 	select date_format(PBregdate, '%m/%d') as PBregdate ,count(PBname) as PBcnt, PBname , SUM(PBprice) as total_price from coo_productbuytb where MId = '<%=MId %>' and Cname = '<%=Cname %>' group by date_format(PBregdate, '%m/%d') order by PBregdate desc ;
 </sql:query>

@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="../style/company.css"/>
 </head>
 <body>
+	<div id="loader"></div>
 	<div id="blackScreen">
 		<div id="ajaxWindow"></div>
 	</div>
