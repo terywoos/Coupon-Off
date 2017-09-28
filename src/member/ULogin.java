@@ -29,8 +29,8 @@ public class ULogin extends DBConnection {
 				if(MPw.equals(pw)) {
 					Result = 1;
 					//�꽦怨�
-					searchStamps();
-					searchCoupons();
+					getAllStamps();
+					getAllCoupons();
 				}	else { 
 					Result=2; 
 					//�씪移섑븯吏��븡�쓬
@@ -59,11 +59,11 @@ public class ULogin extends DBConnection {
 		}
 		return Result;
 	}
-	public void searchStamps() {
+	private void getAllStamps() {
 		Stamps.clear();
 		ResultSet rs2 = null;
 		Statement stmt2 = null;
-		String query2 = "select a.SCount, a.Cnum, b.Cname from coo_stampTB a inner join coo_companyTB b on a.Cnum=b.Cnum where Mid='"+MId+"'";
+		String query2 = "select a.SCount, a.Cnum, b.Cname, b.Clogo, b.Cintro from coo_stampTB a inner join coo_companyTB b on a.Cnum=b.Cnum where Mid='"+MId+"'";
 		try {
 			stmt2 = getConn().createStatement();
 			rs2 = stmt2.executeQuery(query2);
@@ -72,6 +72,8 @@ public class ULogin extends DBConnection {
 				temp.setCName(rs2.getString("Cname"));
 				temp.setSCount(rs2.getInt("SCount"));
 				temp.setCNum(rs2.getInt("Cnum"));
+				temp.setClogo(rs2.getString("Clogo"));
+				temp.setCintro(rs2.getString("Cintro"));
 				Stamps.add(temp);
 			}
 		} catch(Exception e) {
@@ -94,7 +96,7 @@ public class ULogin extends DBConnection {
 		
 	}
 	
-	public void searchCoupons() {
+	private void getAllCoupons() {
 		Coupons.clear();
 		ResultSet rs3 = null;
 		Statement stmt3 = null;
@@ -108,7 +110,7 @@ public class ULogin extends DBConnection {
 				temp.setCPname(rs3.getString("CPname"));
 				temp.setCPregdate(rs3.getTimestamp("CPregdate"));
 				temp.setCPexpire(rs3.getTimestamp("CPexpire"));
-				temp.setCPbarcode(rs3.getString("CPbarcode"));
+				temp.setCPbarcode(rs3.getString("CPbarcode")); 
 				Coupons.add(temp);
 			}
 		} catch(Exception e) {

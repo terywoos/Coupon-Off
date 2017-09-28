@@ -84,14 +84,20 @@
 				for(int j=i*3; j<i*3+3; j++) {  
 					try {
 						Stamp couponTempStamp = couponTempList.get(j);
+						String cname = couponTempStamp.getCName();
+						int scount = couponTempStamp.getSCount();
+						int cnum = couponTempStamp.getCNum();
+						String cintro = couponTempStamp.getCintro();
+						String clogo = couponTempStamp.getClogo();
+						
 		%>
-						<div class="content" align="center" data-cname="<%=couponTempStamp.getCName() %>" data-scount="<%=couponTempStamp.getSCount()%>" data-cnum="<%=couponTempStamp.getCNum()%>" data-index="<%=j%>">
+						<div class="content" align="center" data-cname="<%=cname%>" data-scount="<%=scount%>" data-cnum="<%=cnum%>" data-index="<%=j%>">
 			  			<div class="front">
 							<div class="couponform">
-								<div class="Clogo"></div>
-								<div class="Cname"></div>
+								<div class="Clogo"><img src='../<%=clogo %>' width='190px' height='250px'/></div>
+								<div class="Cname"><%=cname%></div>
 								<div class="Cinfo">
-									<span>고객을 향한 진심 이디야 커피</span>
+									<span><%=cintro %></span>
 								</div>
 								<div class="couponfont" onclick="event.cancelBubble=true;">
 									<a href="#">예약</a>&nbsp&nbsp<a href="#" onclick="shopInfo();">더보기</a>

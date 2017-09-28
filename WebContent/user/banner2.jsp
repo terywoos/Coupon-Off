@@ -12,11 +12,11 @@
 <body>
 <div class="slide">
     <ul class="ulslide">
-        <li><img src="../images/bgtest01.jpg"></li>
-        <li><img src="../images/bgtest02.jpg"></li>
-        <li><img src="../images/bgtest03.jpg"></li>
-        <li><img src="../images/bgtest04.jpg"></li>
-        <li><img src="../images/bgtest05.jpg"></li>
+        <li><img src="../images/bgtest01.jpg" class="banner_images"></li>
+        <li><img src="../images/bgtest02.jpg" class="banner_images"></li>
+        <li><img src="../images/bgtest03.jpg" class="banner_images"></li>
+        <li><img src="../images/bgtest04.jpg" class="banner_images"></li>
+        <li><img src="../images/bgtest05.jpg" class="banner_images"></li>
     </ul>
 
     <div class="list">

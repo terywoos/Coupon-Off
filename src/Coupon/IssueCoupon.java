@@ -4,7 +4,9 @@ import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import net.sourceforge.barbecue.Barcode;
@@ -35,7 +37,7 @@ public class IssueCoupon extends member.DBConnection{
 		}
 	}
 	
-	private void getBarcode() {
+	private void getBarcode(String paramPath) {
 		//바코드 생성
 		ArrayList<String> tempArr = new ArrayList<String>();
 		String sql = "select CPbarNum from Coo_couponTB";
@@ -78,8 +80,16 @@ public class IssueCoupon extends member.DBConnection{
 		Barcode bar =null;
 		try {
 			bar = BarcodeFactory.createCode128(CPBarNum);
-			File file = new File("/Users/literature/documents/test.png");
+			Date date = new Date();
+			SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
+			String fileName = fm.format(date);
+			String realPath = paramPath + MId + "/"+Cnum;
+			File dir = new File(realPath);
+			dir.mkdirs();
+			File file = new File(realPath+"/"+fileName+".png");
 			filePath = file.getPath();
+			int tempIndex = filePath.indexOf("upload");
+			filePath = filePath.substring(tempIndex);
 			BarcodeImageHandler.savePNG(bar,file);
 			System.out.println(filePath);
 		} catch(Exception e) {
@@ -88,10 +98,10 @@ public class IssueCoupon extends member.DBConnection{
 		
 	}
 	
-	public void issue() {
+	public void issue(String paramPath) {
 		//바코드 발행 + 바코드 디비에 저장
 		connect();
-		getBarcode();
+		getBarcode(paramPath);
 		Statement stmt = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs =null;

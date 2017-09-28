@@ -64,7 +64,7 @@
 	
 	$(document).on("click",".UCoupon_rows",function(){
 		//클릭했을때
-		var CPnum = $(this).find('td:first-child').text();
+		var src = $(this).find('td:nth-child(2)').find('img').attr('src');
 		var width = $('body').prop('scrollWidth');
 		var height = $('body').prop('scrollHeight');
 		
@@ -77,7 +77,7 @@
 		$.ajax({
 			 url:"barcodeView.jsp",
 			 data: {
-				 CPnum: CPnum
+				 src: src
 			 },
 			 success:function(data){
 				$("#ajaxWindow").empty();
@@ -124,7 +124,7 @@
 				for(int i=start; i<end; i++) { %>
 				<tr class="UCoupon_rows">
 					<td><%=coupons.get(i).getCPnum() %></td>
-					<td><img src='http://via.placeholder.com/150x50'/></td>
+					<td><img src='../<%=coupons.get(i).getCPbarcode()%>' width='150' height='50'/></td>
 					<td class="UCoupon_cpname"><%=coupons.get(i).getCPname() %></td>
 					<td><%=coupons.get(i).getCPregdate() %></td>
 					<td><%=coupons.get(i).getCPexpire() %></td>

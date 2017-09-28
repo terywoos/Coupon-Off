@@ -4,10 +4,11 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 public class Stamp extends member.DBConnection{
-	private String MId;
 	private String CName;
 	private int SCount;
 	private int CNum;
+	private String Clogo;
+	private String Cintro;
 	
 	public void makeStamp(String id, int num) {
 		PreparedStatement pstmt = null;
@@ -31,7 +32,7 @@ public class Stamp extends member.DBConnection{
 		}
 	}
 	
-	public ArrayList<Stamp> getAllStamps(String text, ArrayList<Stamp> list) {
+	public ArrayList<Stamp> searchStamps(String text, ArrayList<Stamp> list) {
 		ArrayList<Stamp> temp = new ArrayList<Stamp>();
 		
 		for(int i=0; i<list.size(); i++) {
@@ -66,8 +67,19 @@ public class Stamp extends member.DBConnection{
 		CNum = cNum;
 	}
 
-	public void setMId(String mId) {
-		MId = mId;
+	public String getClogo() {
+		return Clogo;
 	}
-	
+
+	public void setClogo(String clogo) {
+		Clogo = clogo;
+	}
+
+	public String getCintro() {
+		return Cintro;
+	}
+
+	public void setCintro(String cintro) {
+		Cintro = cintro;
+	}
 }

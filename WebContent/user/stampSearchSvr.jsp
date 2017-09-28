@@ -7,7 +7,7 @@
  <% 
 	String text = request.getParameter("text");
  	ArrayList<Stamp> list = (ArrayList<Stamp>)session.getAttribute("stamps");
- 	ArrayList<Stamp> Stamps = function.getAllStamps(text, list);
+ 	ArrayList<Stamp> Stamps = function.searchStamps(text, list);
  %>
  <content>
 <% 

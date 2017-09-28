@@ -23,8 +23,6 @@
 	margin-top: 25px;
 	margin-left	: 10px;
 	display: inline-block;
-	background-image: url("../images/ediyalogo.png");
-	background-size: cover;
 }
 
 .Cname
@@ -36,10 +34,8 @@
 	margin-top: 25px;
 	margin-right: 10px;
 	display: inline-block;
-	background-image: url("../images/ediyaname.jpg");
-	background-size: 180px 50px;
-	background-repeat: no-repeat;
 }
+
 .Cinfo
 {
 	width : 180px;

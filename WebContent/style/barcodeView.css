@@ -1,6 +1,6 @@
 @charset "UTF-8";
 #barcodeView_container {
-	width: 400px;
+	width: 450px;
 	height: 235px;
 }
 #barcodeView_upper {
@@ -24,6 +24,6 @@
 }
 
 #barcodeView_lower {
-	width: 400px;
+	width: 450px;
 	height: 200px;
 }
