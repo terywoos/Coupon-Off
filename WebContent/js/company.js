@@ -18,10 +18,9 @@ $(document).ready(function(){
 				},
 				success : function(data){
 					if(data.trim() == "Ok"){
-						alert("고객정보 불러오기 성공");
 						setTimeout(function() {
 							window.location.reload(true);	
-						}, 10000);
+						}, 500);
 					}
 					else {
 						alert("고객정보가 존재하지 않습니다.");
