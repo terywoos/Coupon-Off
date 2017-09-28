@@ -6,28 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../style/searchbar.css"></link>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script>
-	/*
-	function search(event) {
-		event.preventDefault();
-		var text = $("#searchBy").val();
-		if(text=="") {
-			alert("검색하고자 하는 매장명, 매장위치를 입력해주세요.");
-			return false;
-		} else {
-			$.ajax({
-				type:"GET",
-				url: "stampSearchSvr.jsp",
-				data: {
-					text: text
-				},
-				success : function(data) {
-					$("#searchBy").val("");
-				}
-			});
-		}
-	}*/
-	
+<script>	
 	$(document).on("submit","#searchForm",function(e) {
 		e.preventDefault();
 		var text = $("#searchBy").val();
@@ -45,11 +24,11 @@
 				success : function(data) {
 					$("#searchBy").val("");
 					$("#resWindow").empty();
+					$("#resWindow").css("display","none");
 					$(data).find('stamp').each(function() {
 						var cname = $(this).find("cname").text();
 						var scount = $(this).find("scount").text();
 						var cnum = $(this).find("cnum").text();
-						alert(cnum);
 						var newdiv = $('<div>').addClass("stampResult").attr('data-count',scount).text(cname);
 						//$("#resWindow").append(newdiv).css("display","block");
 						$("#resWindow").append(newdiv).css({

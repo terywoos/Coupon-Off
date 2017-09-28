@@ -33,6 +33,10 @@
 			});
 		});	
 		
+		$("#top_logo").click(function() {
+			location.href = "index.jsp";
+		});
+		
 		$("#top_signUp").click(function(){
 			//회원가입클릭 
 			var width = $('body').prop('scrollWidth');

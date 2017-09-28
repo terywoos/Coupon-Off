@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../style/coupon.css?var=7"></link>
+<link rel="stylesheet" type="text/css" href="../style/coupon.css"></link>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
 <title>Insert title here</title>
@@ -33,36 +33,38 @@
 				$(this).find(".back").css("display","none");
 			}
 		});
-	
-		$(document).on("click","#shopInfo",function(){
-			var width = $('body').prop('scrollWidth');
-			var height = $('body').prop('scrollHeight');
-			$("#blackScreen").css({
-				"width" : width,
-				"height" : height,
-				"display" : "block"
-			});
-	
-			$.ajax({
-				url : "coupon/shopInfo.jsp",
-				success : function(data){
-					$("#ajaxWindow").empty();
-					$("#ajaxWindow").append(data);
-					$("#ajaxWindow").css({
-						"display" : "block",
-						"margin" : "auto",
-						"width" : "800px",
-						"height" : "400px"
-					});
-				}
-			});
-		});
 		
-		$	(document).on("click", ".close", function(){
+	});
+	
+	function shopInfo() {
+		var width = $('body').prop('scrollWidth');
+		var height = $('body').prop('scrollHeight');
+		$("#blackScreen").css({
+			"width" : width,
+			"height" : height,
+			"display" : "block"
+		});
+
+		$.ajax({
+			url : "coupon/shopInfo.jsp",
+			success : function(data){
+				$("#ajaxWindow").empty();
+				$("#ajaxWindow").append(data);
+				$("#ajaxWindow").css({
+					"display" : "block",
+					"margin" : "auto",
+					"width" : "800px",
+					"height" : "400px"
+				});
+			}
+		});
+	}
+	
+	$(document).on("click", ".close", function(){
 			$("#blackScreen").css("display","none");
 			$("#ajaxWindow").css("display","none");
-		});
 	});
+	
 </script>
 </head>
 <body>
@@ -83,7 +85,7 @@
 					try {
 						Stamp couponTempStamp = couponTempList.get(j);
 		%>
-						<div class="content" data-cname="<%=couponTempStamp.getCName() %>" data-scount="<%=couponTempStamp.getSCount()%>" data-cnum="<%=couponTempStamp.getCNum()%>" data-index="<%=j%>">
+						<div class="content" align="center" data-cname="<%=couponTempStamp.getCName() %>" data-scount="<%=couponTempStamp.getSCount()%>" data-cnum="<%=couponTempStamp.getCNum()%>" data-index="<%=j%>">
 			  			<div class="front">
 							<div class="couponform">
 								<div class="Clogo"></div>
@@ -92,7 +94,7 @@
 									<span>고객을 향한 진심 이디야 커피</span>
 								</div>
 								<div class="couponfont" onclick="event.cancelBubble=true;">
-									<a href="#">예약</a>&nbsp&nbsp<a href="#" id="shopInfo">더보기</a>
+									<a href="#">예약</a>&nbsp&nbsp<a href="#" onclick="shopInfo();">더보기</a>
 								</div>
 							</div>
 						</div>

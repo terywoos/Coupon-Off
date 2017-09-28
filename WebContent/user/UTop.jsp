@@ -9,10 +9,7 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
-	$(document).ready(function() {
-		
-		
-	});
+	
 </script>
 </head>
 <body>
@@ -20,7 +17,7 @@
 		<div id="top_logo"></div>
 		<div id="Utop_container">
 			<a href="#" id="UTop_user"><%=user %>님 안녕하세요.</a>
-			<a href="#" id="UTop_coupon">쿠폰함</a>
+			<a href="UCoupon.jsp?page=1" id="UTop_coupon">쿠폰함</a>
 			<a href="login/signoutSvr.jsp" id="signout">로그아웃</a>
 		</div>
 	</div>

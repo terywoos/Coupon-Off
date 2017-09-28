@@ -13,6 +13,7 @@
 			session.setAttribute("login", "affirmative");
 			session.setAttribute("ID",id);
 			session.setAttribute("stamps", login.getStamps());
+			session.setAttribute("coupons", login.getCoupons());
 		}
 		out.print(res);
 	%>

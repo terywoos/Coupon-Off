@@ -5,5 +5,6 @@
 	session.removeAttribute("ID");
 	session.removeAttribute("login");
 	session.removeAttribute("stamps");
+	session.removeAttribute("coupons");
 	response.sendRedirect("../index.jsp");
 %>

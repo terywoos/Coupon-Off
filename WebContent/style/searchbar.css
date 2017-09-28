@@ -37,10 +37,11 @@ body {
 }
 #resWindow {
 	width: 305px;
-	display: hidden;
+	display: none;
 	position:absolute;
  	top:75%;
  	padding-top: 5px;
+ 	background: white;
 }
 .stampResult {
 	margin-bottom:5px;
