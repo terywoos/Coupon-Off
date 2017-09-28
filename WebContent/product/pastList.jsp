@@ -5,17 +5,9 @@
     <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%
-	String MId = null;
-	int Cnum = 0;
-	if(session.getAttribute("MId") != null && session.getAttribute("Cnum") != null) {
-	MId = (String)session.getAttribute("MId");
-	Cnum = (Integer)session.getAttribute("Cnum");
-	}
-%>
 <%if(session.getAttribute("MId") != null && session.getAttribute("Cnum") != null) {%>
 <sql:query var="rs" dataSource="jdbc/mysql3">
-	select date_format(PBregdate, '%m/%d') as PBregdate ,count(PBname) as PBcnt, PBname , SUM(PBprice) as total_price from coo_productbuytb where MId = '<%=MId %>' and Cnum = '<%=Cnum %>' group by date_format(PBregdate, '%m/%d') order by PBregdate desc ;
+	select date_format(PBregdate, '%m/%d') as PBregdate ,count(PBname) as PBcnt, PBname , SUM(PBprice) as total_price from coo_productbuytb where MId = '<%=session.getAttribute("MId") %>' and Cnum = '<%=session.getAttribute("Cnum") %>' group by date_format(PBregdate, '%m/%d') order by PBregdate desc ;
 </sql:query>
 <c:if test="${rs.rowCount != 0 }">
 	<c:forEach var="row" items="${rs.rows}">
