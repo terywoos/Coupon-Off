@@ -1,4 +1,5 @@
 <%@page import="java.util.Date"%>
+<%@page import="java.util.*"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.io.IOException"%>
 <%@page import="member.Member"%>
@@ -30,7 +31,7 @@
 	new File(uploadPath).mkdir();
 	
 	try{
-		MultipartRequest multi = new MultipartRequest(request,uploadPath,maxSize,fmt);
+		MultipartRequest multi = new MultipartRequest(request,uploadPath,maxSize,fmt, new DefaultFileRenamePolicy());
 		
 			String Cidx = multi.getParameter("Cidx");
 			String Cpw = multi.getParameter("Cpw");
@@ -45,16 +46,19 @@
 			
 			String now = new SimpleDateFormat("yyyyMMddHmsS").format(new Date());
 		
-	        String realFileName = Cidx+"_"+now+ imgUrl.substring(imgUrl.lastIndexOf("."), imgUrl.length());
-	  
-			File oldFile = new File(imgUrl);
-			File newFile = new File(realFileName); 
-	  
-	 		oldFile.renameTo(newFile);
+			String realFileName = Cidx+"_"+now+ imgUrl.substring(imgUrl.lastIndexOf("."), imgUrl.length());
+			
+			File oldFile = new File(uploadPath+imgUrl);
+			File newFile = new File(uploadPath+realFileName);
+			
+			boolean isTrue = oldFile.renameTo(newFile);
+			
+	 		System.out.println("newFile =>"+ newFile.toString() +" "+isTrue);
+
 	 		
-	 		newFile.createNewFile();
 	 		
-			System.out.println("newFile =>"+ newFile.toString());
+	 		//newFile.createNewFile();
+	 		
 
 		//String saveName = uploadPath+UUID.randomUUID().toString()+"_"+imgUrl;
 		
@@ -65,7 +69,7 @@
 		//System.out.println(uploadPath + uploadFile);
 		Member member = new Member();
 
-		if(member.memberOk(Cidx, Cpw, Cname, Cregion, Cphone, Cemail,Cintro).equals("ok") && member.setRegistImg(newFile.toString()).equals("ok")){
+		if(member.memberOk(Cidx, Cpw, Cname, Cregion, Cphone, Cemail,Cintro).equals("ok") && member.setRegistImg(realFileName).equals("ok")){
 			out.print("ok");
 		};
 		
