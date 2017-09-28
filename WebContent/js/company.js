@@ -18,12 +18,16 @@ $(document).ready(function(){
 				},
 				success : function(data){
 					if(data.trim() == "Ok"){
+						if($(".PBList li").length <= 1){
+							if(confirm("구매내역이 존재하지 않습니다. 스탬프를 만드시겠습니까?")){
+								alert("스템프 생성완료");
+							}else{
+								alert("결제진행");
+							}
+						}
 						setTimeout(function() {
 							window.location.reload(true);	
 						}, 500);
-					}
-					else {
-						alert("고객정보가 존재하지 않습니다.");
 					}
 				}
 			});
@@ -378,26 +382,12 @@ $(document).ready(function(){
 	var pCnt = 0;
 	var plist = 0;
 	var rePoint = 0;
+	var pMoneyTotal = 0;
 	
 	
 	$(document).on("click", "#orderBtn",function(){
 		
-		if(!$("#pList figure").find("#pNum").attr("data-num")){
-			alert("사업자님 로그인 해주세요!");
-			return;
-		}
-		
-		if($Ppt > parseInt($priceAll.text())){
-			if(confirm("고객님의 포인트를 사용하시겠습니까?")){
-				//rePrice = parseInt($priceAll.text());
-				rePoint = parseInt($Ppt) - parseInt($priceAll.text());
-			}
-		}
-		
-		if(Mid == "null"){
-			alert("고객 아이디를 검색해 주세요!");
-			$("#mSearch").focus();
-		}else{
+		function orderStart(pMoneyTotal){
 			$("#userView .buyList li").each(function(index){
 				plist = index;
 				var data = [];
@@ -419,7 +409,8 @@ $(document).ready(function(){
 								pbname : pbname,
 								pbsize : pbsize,
 								pbprice : pbprice,
-								rePoint : rePoint
+								rePoint : rePoint,
+								pMoneyTotal : pMoneyTotal
 							},
 							success:function(result){								
 								var chked = result.trim();
@@ -434,6 +425,41 @@ $(document).ready(function(){
 						});
 					}
 			});
+
+		}//
+		
+		if(!$("#pList figure").find("#pNum").attr("data-num")){
+			alert("사업자님 로그인 해주세요!");
+			return;
+		}
+
+		if(Mid == "null"){
+			alert("고객 아이디를 검색해 주세요!");
+			$("#mSearch").focus();
+		}else{
+			
+			if(parseInt($Ppt) > 0){
+				if(confirm("고객님의 포인트를 사용하시겠습니까?")){		
+					if(parseInt($Ppt) > parseInt($priceAll.text())){
+						//rePrice = parseInt($priceAll.text());
+						rePoint = parseInt($Ppt) - parseInt($priceAll.text());
+					}else if(parseInt($Ppt) <= parseInt($priceAll.text())){
+						if((parseInt($Ppt) - parseInt($priceAll.text()) <= 0)){
+							rePoint = 0;	
+							if(confirm(parseInt($priceAll.text())-parseInt($Ppt)+" 원 결제 진행하겠습니까?")){
+								orderStart(parseInt($priceAll.text())-parseInt($Ppt));
+							}
+						}
+					}
+				}
+			}else{
+				if(confirm(parseInt($priceAll.text())+" 원 결제 진행하겠습니까?")){
+					orderStart(parseInt($priceAll.text()));
+					rePoint = parseInt($Ppt);
+				}
+				
+			}
+			
 		}
 	});
 	

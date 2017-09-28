@@ -15,28 +15,23 @@
 		String pBname = request.getParameter("pbname");
 		String pBsize = request.getParameter("pbsize");
 		String pBprice = request.getParameter("pbprice");
+		int pMoneyTotal = Integer.parseInt(request.getParameter("pMoneyTotal"));
 		
 		System.out.println(MPoint);
 	%>
-	
-	<sql:transaction dataSource="jdbc/mysql3">
-	    <sql:update var="orderIn">
-	    		insert into Coo_productBuyTB(MId,Cname,PBname,PBsize,PBprice) value('<%= mid %>','<%= cname %>','<%= pBname %>','<%= pBsize %>',<%= Integer.parseInt(pBprice) %>);
+	    <sql:update var="orderIn" dataSource="jdbc/mysql3">
+	    		insert into Coo_productBuyTB(MId,Cnum,Cname,PBname,PBsize,PBprice) value('<%= mid %>','<%= cnum %>','<%= cname %>','<%= pBname %>','<%= pBsize %>',<%= Integer.parseInt(pBprice) %>);
 	    </sql:update>
 		
-	   	<sql:update var="stampIn"> 
+	   	<sql:update var="stampIn" dataSource="jdbc/mysql3"> 
 	    		update Coo_StampTB set SCount = SCount + 1 where Mid = '<%= mid %>' and Cnum = '<%= cnum %>';    		
 	    </sql:update>
 	    
-		<% if(MPoint != 0){ %>   
-		   	<sql:update var="pointOut"> 
+		<% if(MPoint >= 0){ %>   
+		   	<sql:update var="pointOut" dataSource="jdbc/mysql3"> 
 		    		update Coo_MemberTB set MPoint = <%=MPoint %> where Mid = '<%= mid %>';    		
 		    </sql:update>
-		    <% session.setAttribute("MPoint", MPoint); %>
 	    <%} %>
-	    
-	    
-	</sql:transaction>
 	
 	<%
 		out.println("ok");
