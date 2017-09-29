@@ -36,7 +36,7 @@
 		
 		String idx = multi.getParameter("pIdx");
 		String name = multi.getParameter("pName");
-		String size = multi.getParameter("pSize");
+		String size = multi.getParameter("pSize").toUpperCase();
 		String price = multi.getParameter("pPrice");
 		String imgUrl = multi.getFilesystemName("pImg");
 		

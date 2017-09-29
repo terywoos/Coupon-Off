@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%  
+	response.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,18 +13,21 @@
 <link rel="stylesheet" type="text/css" href="../style/company.css"/>
 </head>
 <body>
+	<div id="loader"></div>
 	<div id="blackScreen">
 		<div id="ajaxWindow"></div>
 	</div>
 	
 	<header>
-		<%@ include file="top.jsp" %>
+		<%@ include file="top.jsp" %> 
 		<%@ include file="search.jsp" %>
 	</header>
 	<section>
 		<%@ include file="userView.jsp" %>
 		<%@ include file="../product/list.jsp" %>
 	</section>
-	<footer></footer>
+	<footer>
+		<%@ include file="orders.jsp" %>
+	</footer>
 </body>
 </html>
