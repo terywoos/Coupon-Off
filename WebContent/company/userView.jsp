@@ -36,7 +36,7 @@
 		<span>
 		<% if( session.getAttribute("MId") != null && session.getAttribute("Cnum") != null ){%>
 		<sql:query var="rs" dataSource="jdbc/mysql3">
-			select SCount from Coo_stampTB where MId = '<%= session.getAttribute("MId") %>' and Cnum = '<%= session.getAttribute("Cnum") %>'
+			select SCount from Coo_stampTB where MId = '<%= session.getAttribute("MId") %>' and Cnum = <%= session.getAttribute("Cnum") %>
 		</sql:query>
 			<c:if test="${rs.rowCount != 0}">
 				<c:forEach var="row" items="${rs.rows}">
@@ -68,9 +68,9 @@
 		</div>
 		<div class="cpCnt">
 			<span>
-			<% if(session.getAttribute("MId") != null && session.getAttribute("Cname") != null){%>
+			<% if(session.getAttribute("MId") != null && session.getAttribute("Cnum") != null){%>
 				<sql:query var="rs3" dataSource="jdbc/mysql3">
-					select count(CPnum) as CPcount from Coo_couponTB where MId = '<%=session.getAttribute("MId") %>' and Cname = '<%=session.getAttribute("Cname") %>';
+					select count(CPnum) as CPcount from Coo_couponTB where MId = '<%=session.getAttribute("MId") %>' and Cnum = '<%=session.getAttribute("Cnum") %>';
 				</sql:query>
 				<c:if test="${rs3.rowCount != 0 }">
 					<c:forEach var="row3" items="${rs3.rows}">

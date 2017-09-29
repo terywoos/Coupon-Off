@@ -16,13 +16,6 @@ $(window).resize(function(){
 
 $(document).ready(function(){
 
-	$(document).on("click",".cpCnt",function(){
-		$(this).find("span").animate({
-			width:"200px",
-			height:"150px"
-		});
-	})
-	
 	var $Ppt = $("#userView .userInfo").find(".pt").text();
 	var $list = $("#userView .buyList");
 	var $subOrder = $("#userView .subOrder");
@@ -481,15 +474,13 @@ $(document).ready(function(){
 						}
 					}
 				}
+			}else if(parseInt($Ppt) == 0){
+				if(confirm(parseInt($priceAll.text())+" 원 결제 진행하겠습니까?")){
+					orderStart(parseInt($priceAll.text()));
+					rePoint = parseInt($Ppt);
+				}
 			}
-			
-			if(confirm(parseInt($priceAll.text())+" 원 결제 진행하겠습니까?")){
-				orderStart(parseInt($priceAll.text()));
-				rePoint = parseInt($Ppt);
-			}
-				
 		
-			
 		}
 	});
 	
