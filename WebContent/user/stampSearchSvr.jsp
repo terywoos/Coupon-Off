@@ -16,6 +16,7 @@
 	<stamp>
 		<cname><%=st.getCName()%></cname>
 		<snum><%=st.getSNum()%></snum>
+		<scount><%=st.getSCount()%></scount>
 	</stamp>
 <%
 	}

@@ -8,6 +8,7 @@
 	display: inline-block;
 	margin-right: 30px;
 	margin-bottom : 15px;
+	background-color: white;
 }
 .rows {
 	width: 1260px;
@@ -77,6 +78,7 @@
 	display: block;
 	padding: 0;
 	margin: 0;
+	background-color: white;
 }
 .stampform
 {
