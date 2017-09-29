@@ -27,9 +27,8 @@
 					$("#resWindow").css("display","none");
 					$(data).find('stamp').each(function() {
 						var cname = $(this).find("cname").text();
-						var scount = $(this).find("scount").text();
-						var cnum = $(this).find("cnum").text();
-						var newdiv = $('<div>').addClass("stampResult").attr('data-count',scount).text(cname);
+						var snum = $(this).find("snum").text();
+						var newdiv = $('<div>').addClass("stampResult").attr('data-searchSnum',snum).text(cname);
 						//$("#resWindow").append(newdiv).css("display","block");
 						$("#resWindow").append(newdiv).css({
 							"display":"block",
@@ -40,6 +39,12 @@
 				}
 			});
 		}
+	});
+	
+	$(document).on("click",".stampResult",function(e) {
+		var index = parseInt(e.target.getAttribute("data-searchSnum"))-1;
+		alert($('.content:eq('+index+')').html());
+		//제대로 가져와짐
 	})
 </script>
 <title>Insert title here</title>

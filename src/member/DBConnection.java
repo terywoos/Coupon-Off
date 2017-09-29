@@ -7,7 +7,7 @@ public class DBConnection {
 	private String Driver = "com.mysql.jdbc.Driver";
 	private final String URL = "jdbc:mysql://localhost/CooDB";
 	private final String ID = "root";
-	private final String PW = "1234";
+	private final String PW = "1q2w3e4r!";
 	private Connection conn = null;
 	
 	public void connect() {

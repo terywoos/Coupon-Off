@@ -3,9 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%
- 	String referer = request.getHeader("referer");
-	if(referer==null)
-		response.sendRedirect("index.jsp");
+ 	if(session.getAttribute("ID")==null)
+ 		response.sendRedirect("index.jsp");
 	
 	ArrayList<Coupon> coupons = (ArrayList<Coupon>)session.getAttribute("coupons");
  %>
@@ -102,12 +101,19 @@
 	      		<%@include file="UTop.jsp"%>
 	</div>
 	<div class="search">
-	      <%@include file="searchbar.jsp"%>
+	    
 	</div>
 	<div id= "UCoupon_message" align="center">
 	</div>
 	<div id="UCoupon_container">
 		<div id="UCoupon_list">
+		<%
+			if(coupons.size()==0) {
+		%>
+			<div id="UCoupon_empty" align="center">
+			 	회원님께서 현재 이용가능한 쿠폰이 없습니다.
+			</div>
+		<%} else { %>
 			<table id="UCoupon_table">
 				<tr>
 					<td>쿠폰번호</td>
@@ -131,6 +137,7 @@
 				 </tr>	
 			<% 	} %>
 			</table>
+			<%} %>
 		</div>
 		<div id="UCoupon_index">
 		

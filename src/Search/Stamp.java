@@ -7,6 +7,7 @@ public class Stamp extends member.DBConnection{
 	private String CName;
 	private int SCount;
 	private int CNum;
+	private int SNum;
 	private String Clogo;
 	private String Cintro;
 	
@@ -81,5 +82,13 @@ public class Stamp extends member.DBConnection{
 
 	public void setCintro(String cintro) {
 		Cintro = cintro;
+	}
+
+	public int getSNum() {
+		return SNum;
+	}
+
+	public void setSNum(int sNum) {
+		SNum = sNum;
 	}
 }
