@@ -48,7 +48,7 @@ $(document).ready(function(){
 				},
 				success : function(data){
 					if(data.trim() == "Ok"){
-						if($(".PBList li").length <= 1){
+						if($(document).find(".PBList li").length <= 1){
 							if(confirm("구매내역이 존재하지 않습니다. 스탬프를 만드시겠습니까?")){
 								alert("스템프 생성완료");
 							}else{
