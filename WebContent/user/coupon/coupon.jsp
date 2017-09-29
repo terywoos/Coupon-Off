@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../style/coupon.css?var=1"></link>
+<link rel="stylesheet" type="text/css" href="../style/coupon.css"></link>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
 <title>Insert title here</title>
@@ -33,7 +33,6 @@
 				$(this).find(".back").css("display","none");
 			}
 		});
-		
 		load('#form', '2');
 		$(".button").on("click", function(){
 			load('#form', '1', '#btn');
@@ -41,6 +40,7 @@
 		$('.button2').on("click", function(){
 			less('#form', '1', '#btn');
 		});
+	
 	});
 	
 	function shopInfo() {
@@ -71,27 +71,31 @@
 			$("#blackScreen").css("display","none");
 			$("#ajaxWindow").css("display","none");
 	});
+
 	function load(id, cnt, btn){
 		var list = id + " .load:not(.active)";
 		var length = $(list).length;
 		var total_cnt;
 		//alert(length);
-		if(cnt <= length){
+		if(length == 0){
+			//$('#button').hide();	
+		}else if(cnt <= length){
 			total_cnt = cnt;
+			$(list + ":lt(" + total_cnt + ")").removeClass("less").addClass("active");
 		}else {
 			total_cnt = length;
-			
-		alert("확인된 Stamp가 없습니다.");
+		//alert("확인된 Stamp가 없습니다.");
 		}
 		//alert(length);
-		 $(list + ":lt(" + total_cnt + ")").removeClass("less").addClass("active");
+		 //$(list + ":lt(" + total_cnt + ")").removeClass("less").addClass("active");
 	}
 	function less(id, cnt, btn){
 		var list = id + " .load.active";
 		var length = $(list).length;
 		var now_cnt;
-
-		if(length == 2){
+		if(length ==0){
+			$('.btn_wrap').hide();
+		}else if(length == 2){
 			now_cnt = length;
 			alert("못줄임");
 		}else{
@@ -115,9 +119,38 @@
 	<div id="form" class="more">
 		<%
 			if(session.getAttribute("ID")==null) {
-				
+				//로그인 안됐을 때 보여질 부분 처리
+		%>	<div class="noid">
+			<div class="noidform"></div>
+			<div class="noidbackform">
+			<div class="noidstampform">
+			<div class="noidstamp">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			</div>
+			</div>
+		</div><%
 			} else {
 				ArrayList<Stamp> couponTempList = (ArrayList<Stamp>)session.getAttribute("stamps");
+				if(couponTempList.size()==0) {
+					//스탬프없을때 보여줄 페이지
+				%>						
+					<div class="nostamp">
+						<div><span>현재 보유한 Stamp가 없습니다.</span></div>
+					</div>		
+				<%					
+				} else {
 		%>
 			
 		<% for(int i=0; i<=couponTempList.size()/3; i++) { %>
@@ -175,14 +208,17 @@
 				}
 		 %>
 		</div>
+
 		<%}%>
-		<div id="btn" class="btn_wrap">
+
+		</div>
+			<div id="btn" class="btn_wrap">
 			<div class="buttonform">
 			<div class="button"><img src="../images/morebtn.png"></div>
 			<div class="button2"><img src="../images/lessbtn.png"></div>
 			</div>
-		</div>
-	<%}%>
+	<%}
+	}%>
 		
 	</div>	
  

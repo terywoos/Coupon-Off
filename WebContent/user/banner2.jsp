@@ -5,7 +5,7 @@
 <head>
 <script src=https://code.jquery.com/jquery-3.2.1.js></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../style/banner2.css?Var=8"></link>
+<link rel="stylesheet" type="text/css" href="../style/banner2.css"></link>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>

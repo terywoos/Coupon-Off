@@ -246,3 +246,55 @@
 	margin: auto;
 	margin-top: 16px;
 }
+.noid{
+	width :1000px;
+	height: 300px;
+	margin : 10px auto;
+}
+.noidform{
+	width : 550px;
+	height: 300px;
+	border : 5px solid #c65c80;
+	float : left;
+	border-radius: 30px;
+}
+.noidbackform{
+	width : 400px;
+	height: 300px;
+	border : 5px solid #c65c80;
+	float : right;
+	margin: auto;
+	border-radius: 30px;
+}
+
+.noidstampform{
+	width :380px;
+	height: 280px;
+	margin: auto;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+.noidstamp div{
+	width :	90px;
+	height: 90px;
+	display: block;
+	float: left;
+	border-radius: 50px;
+	background-image: url("../images/stampOff.png");
+	background-size: cover;
+}
+.nostamp
+{
+	width : 1260px;
+	height: 300px;
+	margin: 10px auto;
+	border : 5px solid black;
+}
+.nostamp div{
+	width : 400px;
+	margin: auto;
+	margin-top: 110px;
+}
+.nostamp span{
+	font-family: 'Jeju Gothic', sans-serif;
+}

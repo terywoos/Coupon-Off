@@ -7,7 +7,7 @@
 {
 	width : 100%;
 	height: 7px;
-	background: #c65c80;
+	background: #4d4d4d;
 	margin-bottom: -3px;
 }
 .footermain
@@ -31,7 +31,7 @@
 .footerunderlinde{
 	width : 100%;
 	height: 3px;
-	background: #c65c80;
+	background: #4d4d4d;
 }
 .footerfont{
 	font-family: 'Jeju Gothic', sans-serif;
@@ -39,4 +39,18 @@
 	padding: 60px;
 	margin-top: -50px;
 	
+}
+.footerlist{
+	height: 150px;
+	float: right;
+	width : 800px;
+	margin-top: -150px;
+	margin-right: 140px;
+}
+.footerlist img{
+	width : 60px;
+	height: 60px;
+	margin-top: 20px;
+	margin-right: 11px;
+	margin-bottom: -20px;
 }
