@@ -63,15 +63,15 @@
 		</div>
 		<div class="cpCnt">
 			<span>
-				<%if(session.getAttribute("MId") != null && session.getAttribute("Cname") != null) {%>
-				<sql:query var="rs3" dataSource="jdbc/mysql3">
-					select count(CPnum) as CPcount from Coo_couponTB where MId = '<%=session.getAttribute("MId") %>' and Cname = '<%=session.getAttribute("Cname") %>';
-				</sql:query>
-				<c:if test="${rs3.rowCount != 0 }">
-					<c:forEach var="row3" items="${rs3.rows}">
-						<c:out value="${row3.CPcount }" />
-					</c:forEach>
-				</c:if>
+				<%if(session.getAttribute("MId") != null && session.getAttribute("Cnum") != null) {%>
+					<sql:query var="rs3" dataSource="jdbc/mysql3">
+						select count(CPnum) as CPcount from Coo_couponTB where MId = '<%=session.getAttribute("MId") %>' and Cnum = '<%=session.getAttribute("Cnum") %>';
+					</sql:query>
+					<c:if test="${rs3.rowCount != 0 }">
+						<c:forEach var="row3" items="${rs3.rows}">
+							<c:out value="${row3.CPcount }" />
+						</c:forEach>
+					</c:if>
 				<%}else {%>
 					<c:out value="0" />
 				<% }%>
