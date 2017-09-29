@@ -46,9 +46,9 @@
 			<c:if test="${rs.rowCount ==0 }">
 				<c:out value="0" />
 			</c:if>
-		<%} else{ %>
+		<%}else{ %>
 			<c:out value="0" />
-		<%} %>
+		<%}%>
 		</span>
 	</div>
 	<div class="userInfo">
@@ -57,16 +57,18 @@
 			int MPoint = (Integer)session.getAttribute("MPoint");
 		%>
 		<div class="userName">
-			<span><c:if test="${MName == null }">
+			<span>
+				<c:if test="${MName == null }">
 					<c:out value="Guest" />
-					</c:if>
-					<c:if test="${MName != null }"> 
+				</c:if>
+				<c:if test="${MName != null }"> 
 					<%=session.getAttribute("MName") %>
-					</c:if></span>님
+				</c:if>
+			</span>님
 		</div>
 		<div class="cpCnt">
 			<span>
-				<%if(session.getAttribute("MId") != null && session.getAttribute("Cname") != null) {%>
+			<% if(session.getAttribute("MId") != null && session.getAttribute("Cname") != null){%>
 				<sql:query var="rs3" dataSource="jdbc/mysql3">
 					select count(CPnum) as CPcount from Coo_couponTB where MId = '<%=session.getAttribute("MId") %>' and Cname = '<%=session.getAttribute("Cname") %>';
 				</sql:query>
@@ -78,18 +80,9 @@
 				<c:if test="${rs3.rowCount == 0 }">
 					<c:out value="0" />
 				</c:if>
-				<%if(session.getAttribute("MId") != null && session.getAttribute("Cnum") != null) {%>
-					<sql:query var="rs3" dataSource="jdbc/mysql3">
-						select count(CPnum) as CPcount from Coo_couponTB where MId = '<%=session.getAttribute("MId") %>' and Cnum = '<%=session.getAttribute("Cnum") %>';
-					</sql:query>
-					<c:if test="${rs3.rowCount != 0 }">
-						<c:forEach var="row3" items="${rs3.rows}">
-							<c:out value="${row3.CPcount }" />
-						</c:forEach>
-					</c:if>
-				<%}else {%>
-					<c:out value="0" />
-				<% }%>
+			<%}else {%>
+				<c:out value="0" />
+			<% }%>
 			</span>
 		</div>
 		<span>등급</span> VIP <span>포인트</span>
