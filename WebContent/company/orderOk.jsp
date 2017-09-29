@@ -27,7 +27,7 @@
 	    		update Coo_StampTB set SCount = SCount + 1 where Mid = '<%= mid %>' and Cnum = '<%= cnum %>';    		
 	    </sql:update>
 	    
-		<% if(MPoint >= 0){ %>   
+		<% if(MPoint >= 0){ %> 
 		   	<sql:update var="pointOut" dataSource="jdbc/mysql3"> 
 		    		update Coo_MemberTB set MPoint = <%=MPoint %> where Mid = '<%= mid %>';    		
 		    </sql:update>

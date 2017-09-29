@@ -185,7 +185,7 @@ a:visited {
 	border-top:0px;
 	border-bottom-left-radius:10px;
 	border-bottom-right-radius:10px;
-	
+	font-size:1em;
 }
 #orderSpace .orders{
 	position:relative;
@@ -198,7 +198,6 @@ a:visited {
 	display:block;
 	width:100%;
 	font-weight:bold;
-	font-size:1em;
 	padding: 5px 0px 5px 0px;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -233,6 +232,10 @@ a:visited {
 	background-size:cover;
 }
 
+#userView .cpCnt:hover{
+	-webkit-transform:rotate(30deg);
+    transform:rotate(30deg);
+}
 #userView .cpCnt{
 	position:absolute;
 	display:block;
@@ -243,7 +246,7 @@ a:visited {
 	margin:10px;
 	background-image: url("../images/letter.png");
 	background-size:100%;
-	z-index:0;
+	z-index:0;    
 }
 
 #userView .cp > span,#productList .size{
@@ -268,11 +271,11 @@ a:visited {
 	color:#ffffff;
 	width:25px;
 	height:25px;
-	right:-5px;
-	bottom:-5px;
+	left:30px;
+	top:20px;
 	border-radius: 15px;	
 	text-align:center;
-	z-index:2;
+	z-index:999;
 }
 
 
@@ -291,7 +294,6 @@ a:visited {
 	overflow-y:scroll;
 	overflow-x:hidden;
 	height:460px;
-	
 }
 
 #productList figure, .fig{
@@ -304,6 +306,12 @@ a:visited {
 	border:1px solid #b3b3b3;
 	border-top-right-radius: 1.5em;
 	border-bottom-left-radius: 1.5em;
+	box-shadow: 3px 3px 10px #b7b7b7;
+}
+
+#productList figure:hover{
+	border:1px solid #474747;
+	background-color: #fdfafc;
 }
 
 #productList #pList > figure:first-child {
@@ -313,14 +321,24 @@ a:visited {
 }
 
 #productList #pList > figure:first-child > figcaption, .figCap{
-	position:relative;
+	position:absolute;
 	display:block;
-	width:100%;
-	height:52%;
-	border:1px solid black;
-	padding-top:48%;
+	width:80%;
+	height:80%;
+	border:2px dashed #808080;
+	border-radius:20px;
+	text-align:center;
+	vertical-align: middle;
+	font-size:1em;
+	color:#080808;
 }
 
+#productList #pList > figure:first-child > figcaption > span{
+	position:absolute;
+	display:block;
+	top:45%;
+	left:25%;
+}
 
 #productList figure > .img{
 	position:relative;
@@ -484,6 +502,7 @@ a:visited {
 	display:inline-block;
 	padding:5px;
 	text-align:center;
+	width:10%;
 	color: #000000;
 }
 #userView .pointDisc{
@@ -530,7 +549,7 @@ a:visited {
 	display:inline-block;
 	font-size:1.2em;	
 	width:23%;
-	height:60px;
+	height:80px;
 	background-color: #f7ecf3;
 	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 15px;
@@ -566,7 +585,7 @@ a:visited {
 	display:block;
  	width:30%;
  	top:20px;
- 	right:-20px;
+ 	right:-30px;
  }
 
 #orderSpace #pointBtn{

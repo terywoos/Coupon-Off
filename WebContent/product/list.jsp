@@ -10,7 +10,7 @@
 	<div id="pList">
 	<% if(session.getAttribute("Cidx") != null){ %>
 		<figure id="regBtn">
-			<figcaption>+ 상품등록</figcaption>
+			<figcaption><span>+ 상품등록</span></figcaption>
 		</figure>
 		<script>
 		$("#pList > figure:first-child > figcaption").addClass("figCap");

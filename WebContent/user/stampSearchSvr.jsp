@@ -14,9 +14,9 @@
 	for(Stamp st: Stamps) {
 %>
 	<stamp>
-		<cname><%=st.getCName() %></cname>
-		<scount><%=st.getSCount() %></scount>
-		<cnum><%=st.getCNum()%></cnum>
+		<cname><%=st.getCName()%></cname>
+		<snum><%=st.getSNum()%></snum>
+		<scount><%=st.getSCount()%></scount>
 	</stamp>
 <%
 	}

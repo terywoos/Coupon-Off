@@ -63,3 +63,15 @@ body {
 	font-family: 'Jeju Gothic', sans-serif;
 	margin-left: 8px;
 }
+
+#search_couponfont {
+	width: 200px;
+	display: inline-block;
+	float: right;
+}
+#search_close {
+	display: inline;
+}
+#search_close:hover {
+	cursor: pointer;
+}

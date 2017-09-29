@@ -63,12 +63,13 @@ public class ULogin extends DBConnection {
 		Stamps.clear();
 		ResultSet rs2 = null;
 		Statement stmt2 = null;
-		String query2 = "select a.SCount, a.Cnum, b.Cname, b.Clogo, b.Cintro from coo_stampTB a inner join coo_companyTB b on a.Cnum=b.Cnum where Mid='"+MId+"'";
+		String query2 = "select a.SNum, a.SCount, a.Cnum, b.Cname, b.Clogo, b.Cintro from coo_stampTB a inner join coo_companyTB b on a.Cnum=b.Cnum where Mid='"+MId+"'";
 		try {
 			stmt2 = getConn().createStatement();
 			rs2 = stmt2.executeQuery(query2);
 			while(rs2.next()) {
 				Stamp temp = new Stamp();
+				temp.setSNum(rs2.getInt("SNum"));
 				temp.setCName(rs2.getString("Cname"));
 				temp.setSCount(rs2.getInt("SCount"));
 				temp.setCNum(rs2.getInt("Cnum"));

@@ -1,4 +1,34 @@
+function reSizeStart(){
+	var $orderSpaceTop = $("#orderSpace").offset().top;
+	var $userViewBottom = $("#userView").css("height",($orderSpaceTop-180)+"px").height();
+	var $subOrderTop = $("#userView .subOrder").css("height");
+	var $listTop = $("#userView .buyList,#userView .PBList").css("height",($userViewBottom-330)+"px").height();
+	var $productBottom = $("#productList").css("height",($orderSpaceTop-180)+"px").height();
+	var $productListBottom = $("#productList #pList").css("height",($orderSpaceTop-260)+"px");
+	
+}
+
+$(window).resize(function(){
+	reSizeStart();
+})
+
+
+
 $(document).ready(function(){
+
+	var $Ppt = $("#userView .userInfo").find(".pt").text();
+	var $list = $("#userView .buyList");
+	var $subOrder = $("#userView .subOrder");
+	var $priceAll = $("#orderSpace .priceAll > #prices");
+	var Mid = $("#userView").attr("data-idx");  // session.id
+	var $price = 0;
+	var $cntPrice = 0;
+	var $etcAll;
+	var $pCnt = 1;
+	var $buyList = $("#userView .PBList");
+	
+	
+	reSizeStart();
 	
 	function searchAct(){
 		var MPhoneNum = $("#mSearch").val();
@@ -18,7 +48,7 @@ $(document).ready(function(){
 				},
 				success : function(data){
 					if(data.trim() == "Ok"){
-						if($(".PBList li").length <= 1){
+						if($(document).find(".PBList li").length <= 1){
 							if(confirm("구매내역이 존재하지 않습니다. 스탬프를 만드시겠습니까?")){
 								alert("스템프 생성완료");
 							}else{
@@ -234,16 +264,7 @@ $(document).ready(function(){
 		//회원가입클릭 
 		popup("login/member.jsp","500px","400px");
 	});
-	var $Ppt = $("#userView .userInfo").find(".pt").text();
-	var $list = $("#userView .buyList");
-	var $subOrder = $("#userView .subOrder");
-	var $priceAll = $("#orderSpace .priceAll > #prices");
-	var Mid = $("#userView").attr("data-idx");  // session.id
-	var $price = 0;
-	var $cntPrice = 0;
-	var $etcAll;
-	var $pCnt = 1;
-	var $buyList = $("#userView .PBList");
+
 	$buyList.prepend("<li> 최근 구매한 내역입니다 </li>");
 	
 	var $buyPrice = $("<li class='buyPrice'><span>금&nbsp;&nbsp;&nbsp;&nbsp;액</span><span></span><span>0</span><span>원</span></li>");
@@ -262,11 +283,6 @@ $(document).ready(function(){
 	
 	//리스트 이미지 선택시 블랙창 뛰우기 
 	$(document).on("click","#pList figure",function(e){
-		if(Mid == "null"){
-			alert("회원정보를 입력해주세요!");
-			$("#mSearch").focus();
-			return;
-		}
 		nowListCss(); // 리스트 css 초기화
 		var pNum = $(this).find("#pNum").attr("data-num");
 		var pName = $(this).find("#pName").text();
@@ -368,6 +384,12 @@ $(document).ready(function(){
 					
 				});
 				
+			}else{
+				if(Mid == "null"){
+					alert("회원정보를 입력해주세요!");
+					$("#mSearch").focus();
+					return;
+				}
 			}
 
 			//$cntPrice = parseInt(pPrice)*$pCnt;			
@@ -452,14 +474,13 @@ $(document).ready(function(){
 						}
 					}
 				}
-			}else{
+			}else if(parseInt($Ppt) == 0){
 				if(confirm(parseInt($priceAll.text())+" 원 결제 진행하겠습니까?")){
 					orderStart(parseInt($priceAll.text()));
 					rePoint = parseInt($Ppt);
 				}
-				
 			}
-			
+		
 		}
 	});
 	
@@ -483,7 +504,7 @@ $(document).ready(function(){
 			},
 			success : function(data){
 				if(data.trim() != ""){
-					alert("성공");
+
 				}
 				else {
 					alert("구매내역이 존재하지 않습니다.");

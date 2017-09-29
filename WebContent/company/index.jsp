@@ -19,7 +19,7 @@
 	</div>
 	
 	<header>
-		<%@ include file="top.jsp" %>
+		<%@ include file="top.jsp" %> 
 		<%@ include file="search.jsp" %>
 	</header>
 	<section>
