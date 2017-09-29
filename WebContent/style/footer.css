@@ -12,7 +12,7 @@
 }
 .footermain
 {
-	width : 70%;
+	width : 1180px;
 	height: 184px;
 	margin: auto;
 }
@@ -45,7 +45,7 @@
 	float: right;
 	width : 800px;
 	margin-top: -150px;
-	margin-right: 140px;
+	margin-right: 50px;
 }
 .footerlist img{
 	width : 60px;
