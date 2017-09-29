@@ -78,6 +78,15 @@
 				<c:if test="${rs3.rowCount == 0 }">
 					<c:out value="0" />
 				</c:if>
+				<%if(session.getAttribute("MId") != null && session.getAttribute("Cnum") != null) {%>
+					<sql:query var="rs3" dataSource="jdbc/mysql3">
+						select count(CPnum) as CPcount from Coo_couponTB where MId = '<%=session.getAttribute("MId") %>' and Cnum = '<%=session.getAttribute("Cnum") %>';
+					</sql:query>
+					<c:if test="${rs3.rowCount != 0 }">
+						<c:forEach var="row3" items="${rs3.rows}">
+							<c:out value="${row3.CPcount }" />
+						</c:forEach>
+					</c:if>
 				<%}else {%>
 					<c:out value="0" />
 				<% }%>
@@ -107,7 +116,7 @@
 		<li class="listContents">
 			<ul class="buyList"></ul>
 			<ul class="PBList">
-				<%@include file="../product/pastList.jsp"%>
+				<%@ include file="../product/pastList.jsp"%>
 			</ul>
 		</li><li class="subOrder"></li>
 	</ul>
